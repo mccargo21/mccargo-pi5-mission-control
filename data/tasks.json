@@ -6,11 +6,29 @@
       "description": "Recurring task to pull actionable items from Google Calendar and emails into Mission Control.\n\n**Schedule:**\n- ⏰ 8am: Daily (via OpenClaw cron)\n- 🔍 Scans next 36 hours\n- 📋 Creates tasks with auto-generated subtasks\n- ✅ Uses MCP integration (Zapier)\n\n**What gets extracted:**\n- Google Calendar events (meetings, deadlines)\n- Emails with task keywords (task, to-do, due, deadline, meeting, appointment, reminder)\n- Meeting prep tasks\n- Follow-up tasks\n\n**Subtask generation:**\n- For meetings: Prep agenda, attend, send notes\n- For deadlines: Research, draft, finalize\n- For tasks: Break into 2-3 actionable steps\n\n**Implementation:** Uses mcporter + Zapier MCP to fetch calendar events and Gmail.",
       "status": "permanent",
       "project": "default",
-      "tags": ["daily", "automation", "calendar", "email", "mcp"],
+      "tags": [
+        "daily",
+        "automation",
+        "calendar",
+        "email",
+        "mcp"
+      ],
       "subtasks": [
-        { "id": "sub_001", "title": "8am: Cron job runs extraction", "done": false },
-        { "id": "sub_002", "title": "Review extracted tasks", "done": false },
-        { "id": "sub_003", "title": "Adjust priorities as needed", "done": false }
+        {
+          "id": "sub_001",
+          "title": "8am: Cron job runs extraction",
+          "done": false
+        },
+        {
+          "id": "sub_002",
+          "title": "Review extracted tasks",
+          "done": false
+        },
+        {
+          "id": "sub_003",
+          "title": "Adjust priorities as needed",
+          "done": false
+        }
       ],
       "priority": "medium",
       "comments": [
@@ -20,14 +38,25 @@
           "timestamp": "2026-02-02T04:52:00Z"
         }
       ],
-      "createdAt": "2026-02-02T04:50:00Z"
+      "createdAt": "2026-02-02T04:50:00Z",
+      "sortOrder": 0
     }
   ],
   "projects": [
-    { "id": "default", "name": "My Project", "color": "#3b82f6", "icon": "📁" }
+    {
+      "id": "default",
+      "name": "My Project",
+      "color": "#3b82f6",
+      "icon": "📁"
+    }
   ],
   "activities": [
-    { "type": "updated", "actor": "Molty", "task": "Daily: Extract Tasks from Calendar & Email", "time": "just now" }
+    {
+      "type": "updated",
+      "actor": "Molty",
+      "task": "Daily: Extract Tasks from Calendar & Email",
+      "time": "just now"
+    }
   ],
-  "lastUpdated": "2026-02-02T04:52:00Z"
+  "lastUpdated": "2026-02-02T05:06:28.185Z"
 }
