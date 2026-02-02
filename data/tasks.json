@@ -1,8 +1,33 @@
 {
-  "tasks": [],
+  "tasks": [
+    {
+      "id": "mc_update_openclaw_daily",
+      "title": "🔄 Daily: Update OpenClaw",
+      "description": "Update OpenClaw to latest version every morning at 5am. Ensures you have the latest features and security patches.\n\n**Steps:**\n1. Check for updates: `openclaw version`\n2. Run update: `openclaw update`\n3. Restart gateway if needed\n4. Log completion",
+      "status": "permanent",
+      "project": "default",
+      "tags": ["daily", "maintenance", "openclaw"],
+      "subtasks": [
+        { "id": "sub_001", "title": "Check current version", "done": false },
+        { "id": "sub_002", "title": "Run update command", "done": false },
+        { "id": "sub_003", "title": "Verify update success", "done": false }
+      ],
+      "priority": "high",
+      "comments": [
+        {
+          "author": "Molty",
+          "text": "Auto-created task for daily OpenClaw updates. Runs at 5am via cron.",
+          "timestamp": "2026-02-02T04:25:00Z"
+        }
+      ],
+      "createdAt": "2026-02-02T04:25:00Z"
+    }
+  ],
   "projects": [
     { "id": "default", "name": "My Project", "color": "#3b82f6", "icon": "📁" }
   ],
-  "activities": [],
-  "lastUpdated": "2026-02-02T04:20:00Z"
+  "activities": [
+    { "type": "created", "actor": "Molty", "task": "Daily: Update OpenClaw", "time": "just now" }
+  ],
+  "lastUpdated": "2026-02-02T04:25:00Z"
 }
