@@ -40,6 +40,19 @@
       ],
       "createdAt": "2026-02-02T04:50:00Z",
       "sortOrder": 0
+    },
+    {
+      "id": "task_1770008881661",
+      "title": "Restaurant Ideas",
+      "description": "Send me a message with some dinner options for me and my wife. The location should be 20m drive or less",
+      "project": "",
+      "tags": [
+        ""
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-02T05:08:01.661Z",
+      "status": "in_progress"
     }
   ],
   "projects": [
@@ -58,5 +71,5 @@
       "time": "just now"
     }
   ],
-  "lastUpdated": "2026-02-02T05:06:28.185Z"
+  "lastUpdated": "2026-02-02T05:08:01.661Z"
 }
