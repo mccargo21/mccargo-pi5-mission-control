@@ -280,20 +280,6 @@
       "createdAt": "2026-01-01T00:00:02Z"
     },
     {
-      "id": "task_1770005560280",
-      "title": "Krypto-Sentiment Nachmittag",
-      "description": "Schedule: 45 15 * * *\n\n",
-      "status": "backlog",
-      "project": "system",
-      "tags": [
-        "from-cron"
-      ],
-      "subtasks": [],
-      "priority": "medium",
-      "createdAt": "2026-02-02T04:12:40.280Z",
-      "createdFromCron": "3bf9ac42-0bd9-49c5-8ead-59b33b9213b4"
-    },
-    {
       "id": "task_1770005565747",
       "title": "Krypto-Sentiment Morgens",
       "description": "Schedule: 0 8 * * *\n\n",
@@ -336,5 +322,5 @@
       "time": "just now"
     }
   ],
-  "lastUpdated": "2026-01-01T00:00:00Z"
+  "lastUpdated": "2026-02-02T04:13:00.730Z"
 }
