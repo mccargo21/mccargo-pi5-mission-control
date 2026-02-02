@@ -1,0 +1,30 @@
+# OpenClaw sensitive files
+logs/
+*.log
+config/
+~/.clawdbot/secrets/
+
+# Memory files (keep local)
+memory/
+MEMORY.md
+USER.md
+IDENTITY.md
+SOUL.md
+TOOLS.md
+HEARTBEAT.md
+
+# Workspace state
+.update-status.json
+SETUP-GUIDE.md
+SSH-PUBLIC-KEY.txt
+*.sh
+
+# Skill working directories
+skills/.clawdhub/
+skills/.clawhub/
+skills/*/.clawdhub/
+skills/*/.clawhub/
+
+# Task state files (keep local)
+data/.tasks-snapshot.json
+data/.webhook-debug.log
