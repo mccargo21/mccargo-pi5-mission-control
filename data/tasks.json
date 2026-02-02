@@ -45,7 +45,7 @@
       "id": "task_1770008881661",
       "title": "Restaurant Ideas",
       "description": "Send me a message with some dinner options for me and my wife. The location should be 20m drive or less",
-      "project": "",
+      "project": "default",
       "tags": [
         ""
       ],
@@ -88,5 +88,5 @@
       "time": "just now"
     }
   ],
-  "lastUpdated": "2026-02-02T11:42:21.138Z"
+  "lastUpdated": "2026-02-02T11:50:58.115Z"
 }
