@@ -6,11 +6,22 @@
       "description": "Recurring task for OpenClaw updates. **Times:**\n- ⏰ 7am: Reminder to check for updates (via cron notification)\n- 🔧 10am: Auto-run update script (via cron)\n- 📝 12pm: Update recap report (via cron)\n\n**If update is available:**\n1. Run: `openclaw update`\n2. Restart gateway: `openclaw gateway restart`\n3. Check logs for errors\n\n**Note:** This is a tracking task — actual work happens via cron jobs.",
       "status": "permanent",
       "project": "default",
-      "tags": ["daily", "maintenance", "openclaw"],
+      "tags": [
+        "daily",
+        "maintenance",
+        "openclaw"
+      ],
       "subtasks": [
-        { "id": "sub_001", "title": "7am: Check for update reminder", "done": false },
-        { "id": "sub_002", "title": "10am: Auto-update runs", "done": false },
-        { "id": "sub_003", "title": "12pm: Check update recap", "done": false }
+        {
+          "id": "sub_002",
+          "title": "10am: Auto-update runs",
+          "done": false
+        },
+        {
+          "id": "sub_003",
+          "title": "12pm: Check update recap",
+          "done": false
+        }
       ],
       "priority": "medium",
       "comments": [
@@ -24,10 +35,20 @@
     }
   ],
   "projects": [
-    { "id": "default", "name": "My Project", "color": "#3b82f6", "icon": "📁" }
+    {
+      "id": "default",
+      "name": "My Project",
+      "color": "#3b82f6",
+      "icon": "📁"
+    }
   ],
   "activities": [
-    { "type": "updated", "actor": "Molty", "task": "Daily: Update OpenClaw", "time": "just now" }
+    {
+      "type": "updated",
+      "actor": "Molty",
+      "task": "Daily: Update OpenClaw",
+      "time": "just now"
+    }
   ],
   "lastUpdated": "2026-02-02T04:30:00Z"
 }
