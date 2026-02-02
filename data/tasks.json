@@ -31,7 +31,10 @@
           "timestamp": "2026-02-02T04:30:00Z"
         }
       ],
-      "createdAt": "2026-02-02T04:25:00Z"
+      "createdAt": "2026-02-02T04:25:00Z",
+      "archived": true,
+      "archivedAt": "2026-02-02T04:32:18.386Z",
+      "archivedReason": "Converted to cron: 775d7795-388b-4d61-be6e-cdb5c1c99698"
     }
   ],
   "projects": [
