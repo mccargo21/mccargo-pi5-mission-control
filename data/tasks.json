@@ -52,8 +52,15 @@
       "subtasks": [],
       "priority": "medium",
       "createdAt": "2026-02-02T05:08:01.661Z",
-      "status": "in_progress",
-      "sortOrder": 0
+      "status": "review",
+      "sortOrder": 0,
+      "comments": [
+        {
+          "author": "Molty",
+          "text": "Completed: Provided restaurant options within 20min drive from Peachtree Corners area.",
+          "timestamp": "2026-02-02T15:45:00Z"
+        }
+      ]
     }
   ],
   "projects": [
