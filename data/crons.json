@@ -1,4 +1,15 @@
 {
-  "lastUpdated": "2026-02-02T04:30:00Z",
-  "crons": []
+  "crons": [
+    {
+      "id": "775d7795-388b-4d61-be6e-cdb5c1c99698",
+      "name": "🔄 Daily: Update OpenClaw",
+      "prompt": "Recurring task for OpenClaw updates. **Times:**\n- ⏰ 7am: Reminder to check for updates (via cron notification)\n- 🔧 10am: Auto-run update script (via cron)\n- 📝 12pm: Update recap report (via cron)\n\n**If update is available:**\n1. Run: `openclaw update`\n2. Restart gateway: `openclaw gateway restart`\n3. Check logs for errors\n\n**Note:** This is a tracking task — actual work happens via cron jobs.\n\nSubtasks:\n- 5am: Auto-update runs\n- 7am: Check update recap",
+      "schedule": "00 07 * * *",
+      "scheduleHuman": "Daily at 07:00",
+      "timezone": "Europe/Berlin",
+      "enabled": true,
+      "pending": true,
+      "createdAt": "2026-02-02T04:32:18.386Z"
+    }
+  ]
 }
