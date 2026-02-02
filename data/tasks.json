@@ -52,7 +52,8 @@
       "subtasks": [],
       "priority": "medium",
       "createdAt": "2026-02-02T05:08:01.661Z",
-      "status": "in_progress"
+      "status": "backlog",
+      "sortOrder": 0
     }
   ],
   "projects": [
@@ -65,11 +66,19 @@
   ],
   "activities": [
     {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "Restaurant Ideas",
+      "from": "in_progress",
+      "to": "backlog",
+      "time": "just now"
+    },
+    {
       "type": "updated",
       "actor": "Molty",
       "task": "Daily: Extract Tasks from Calendar & Email",
       "time": "just now"
     }
   ],
-  "lastUpdated": "2026-02-02T11:42:07.567Z"
+  "lastUpdated": "2026-02-02T11:42:16.406Z"
 }
