@@ -348,6 +348,20 @@
       "priority": "medium",
       "createdAt": "2026-02-02T04:13:28.130Z",
       "createdFromCron": "3bf9ac42-0bd9-49c5-8ead-59b33b9213b4"
+    },
+    {
+      "id": "task_1770005612263",
+      "title": "Krypto-Sentiment Morgens",
+      "description": "Schedule: Daily at 08:00\n\n",
+      "status": "backlog",
+      "project": "system",
+      "tags": [
+        "from-cron"
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-02T04:13:32.263Z",
+      "createdFromCron": "17244c9b-554d-4ca9-9abc-2a886f063865"
     }
   ],
   "projects": [
