@@ -334,6 +334,20 @@
       "priority": "medium",
       "createdAt": "2026-02-02T04:18:08.797Z",
       "createdFromCron": "c72db31d-7dff-43ff-acc4-f7e89ff85f65"
+    },
+    {
+      "id": "task_1770005899596",
+      "title": "Erinnerung Lastschrift Angelos",
+      "description": "Schedule: 0 8 28 1 *\n\n",
+      "status": "backlog",
+      "project": "system",
+      "tags": [
+        "from-cron"
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-02T04:18:19.597Z",
+      "createdFromCron": "3cd8c7a1-ba71-4165-81db-5107e5849937"
     }
   ],
   "projects": [
