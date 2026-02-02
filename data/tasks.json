@@ -3,21 +3,21 @@
     {
       "id": "mc_update_openclaw_daily",
       "title": "🔄 Daily: Update OpenClaw",
-      "description": "Update OpenClaw to latest version every morning at 5am. Ensures you have the latest features and security patches.\n\n**Steps:**\n1. Check for updates: `openclaw version`\n2. Run update: `openclaw update`\n3. Restart gateway if needed\n4. Log completion",
+      "description": "Recurring task for OpenClaw updates. **Times:**\n- ⏰ 7am: Reminder to check for updates (via cron notification)\n- 🔧 10am: Auto-run update script (via cron)\n- 📝 12pm: Update recap report (via cron)\n\n**If update is available:**\n1. Run: `openclaw update`\n2. Restart gateway: `openclaw gateway restart`\n3. Check logs for errors\n\n**Note:** This is a tracking task — actual work happens via cron jobs.",
       "status": "permanent",
       "project": "default",
       "tags": ["daily", "maintenance", "openclaw"],
       "subtasks": [
-        { "id": "sub_001", "title": "Check current version", "done": false },
-        { "id": "sub_002", "title": "Run update command", "done": false },
-        { "id": "sub_003", "title": "Verify update success", "done": false }
+        { "id": "sub_001", "title": "7am: Check for update reminder", "done": false },
+        { "id": "sub_002", "title": "10am: Auto-update runs", "done": false },
+        { "id": "sub_003", "title": "12pm: Check update recap", "done": false }
       ],
-      "priority": "high",
+      "priority": "medium",
       "comments": [
         {
           "author": "Molty",
-          "text": "Auto-created task for daily OpenClaw updates. Runs at 5am via cron.",
-          "timestamp": "2026-02-02T04:25:00Z"
+          "text": "Created to track OpenClaw update schedule. Cron jobs handle actual work.",
+          "timestamp": "2026-02-02T04:30:00Z"
         }
       ],
       "createdAt": "2026-02-02T04:25:00Z"
@@ -27,7 +27,7 @@
     { "id": "default", "name": "My Project", "color": "#3b82f6", "icon": "📁" }
   ],
   "activities": [
-    { "type": "created", "actor": "Molty", "task": "Daily: Update OpenClaw", "time": "just now" }
+    { "type": "updated", "actor": "Molty", "task": "Daily: Update OpenClaw", "time": "just now" }
   ],
-  "lastUpdated": "2026-02-02T04:25:00Z"
+  "lastUpdated": "2026-02-02T04:30:00Z"
 }

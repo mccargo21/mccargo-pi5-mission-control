@@ -1,15 +1,4 @@
 {
-  "lastUpdated": "2026-02-02T04:25:00Z",
-  "crons": [
-    {
-      "id": "cron_update_openclaw",
-      "name": "Update OpenClaw",
-      "emoji": "🔄",
-      "schedule": "0 5 * * *",
-      "enabled": true,
-      "lastStatus": null,
-      "lastRunAt": null,
-      "nextRunAt": null
-    }
-  ]
+  "lastUpdated": "2026-02-02T04:30:00Z",
+  "crons": []
 }
