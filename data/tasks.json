@@ -3,55 +3,30 @@
     {
       "id": "mc_update_openclaw_daily",
       "title": "🔄 Daily: Update OpenClaw",
-      "description": "Recurring task for OpenClaw updates. **Times:**\n- ⏰ 7am: Reminder to check for updates (via cron notification)\n- 🔧 10am: Auto-run update script (via cron)\n- 📝 12pm: Update recap report (via cron)\n\n**If update is available:**\n1. Run: `openclaw update`\n2. Restart gateway: `openclaw gateway restart`\n3. Check logs for errors\n\n**Note:** This is a tracking task — actual work happens via cron jobs.",
+      "description": "Recurring task for OpenClaw updates. **Times:**\n- 🔧 10am: Auto-run update script (via OpenClaw cron)\n- 📝 12pm: Check update recap & send message (via OpenClaw cron)\n\n**If update is available:**\n1. Update script runs automatically at 10am\n2. If updated, recap script creates message file at 12pm\n3. Sub-agent reads recap file and sends to chat\n4. Gateway auto-restarts after update\n\n**No manual action needed** - everything happens automatically via cron jobs.",
       "status": "permanent",
       "project": "default",
-      "tags": [
-        "daily",
-        "maintenance",
-        "openclaw"
-      ],
+      "tags": ["daily", "maintenance", "openclaw"],
       "subtasks": [
-        {
-          "id": "sub_002",
-          "title": "5am: Auto-update runs",
-          "done": false
-        },
-        {
-          "id": "sub_003",
-          "title": "7am: Check update recap",
-          "done": false
-        }
+        { "id": "sub_001", "title": "10am: Update script runs automatically", "done": false },
+        { "id": "sub_002", "title": "12pm: Check for update notification in chat", "done": false }
       ],
       "priority": "medium",
       "comments": [
         {
           "author": "Molty",
-          "text": "Created to track OpenClaw update schedule. Cron jobs handle actual work.",
-          "timestamp": "2026-02-02T04:30:00Z"
+          "text": "Updated to reflect actual OpenClaw cron job timing. No manual action needed - automation handles everything.",
+          "timestamp": "2026-02-02T04:35:00Z"
         }
       ],
-      "createdAt": "2026-02-02T04:25:00Z",
-      "archived": true,
-      "archivedAt": "2026-02-02T04:32:18.386Z",
-      "archivedReason": "Converted to cron: 775d7795-388b-4d61-be6e-cdb5c1c99698"
+      "createdAt": "2026-02-02T04:25:00Z"
     }
   ],
   "projects": [
-    {
-      "id": "default",
-      "name": "My Project",
-      "color": "#3b82f6",
-      "icon": "📁"
-    }
+    { "id": "default", "name": "My Project", "color": "#3b82f6", "icon": "📁" }
   ],
   "activities": [
-    {
-      "type": "updated",
-      "actor": "Molty",
-      "task": "Daily: Update OpenClaw",
-      "time": "just now"
-    }
+    { "type": "updated", "actor": "Molty", "task": "Daily: Update OpenClaw", "time": "just now" }
   ],
-  "lastUpdated": "2026-02-02T04:30:00Z"
+  "lastUpdated": "2026-02-02T04:35:00Z"
 }
