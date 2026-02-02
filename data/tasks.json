@@ -47,23 +47,62 @@
       "archived": true,
       "archivedAt": "2026-02-02T04:42:02.953Z",
       "archivedReason": "Converted to cron: f96a1c1e-f74b-4a31-8994-bb75f89b0b5b"
+    },
+    {
+      "id": "mc_task_extractor_daily",
+      "title": "📅 Daily: Extract Tasks from Calendar & Email",
+      "description": "Recurring task to pull actionable items from Google Calendar and emails into Mission Control.\n\n**Schedule:**\n- ⏰ 8am: Daily (via OpenClaw cron)\n- 🔍 Scans next 36 hours\n- 📋 Creates tasks with auto-generated subtasks\n\n**What gets extracted:**\n- Google Calendar events (meetings, deadlines)\n- Emails with task keywords (deadline, due, to-do)\n- Meeting prep tasks\n- Follow-up tasks\n\n**Subtask generation:**\n- For meetings: Prep agenda, attend, send notes\n- For deadlines: Research, draft, finalize\n- For tasks: Break into 2-3 actionable steps",
+      "status": "permanent",
+      "project": "default",
+      "tags": ["daily", "automation", "calendar", "email"],
+      "subtasks": [
+        { "id": "sub_001", "title": "8am: Cron job runs extraction", "done": false },
+        { "id": "sub_002", "title": "Review extracted tasks", "done": false },
+        { "id": "sub_003", "title": "Adjust priorities as needed", "done": false }
+      ],
+      "priority": "medium",
+      "comments": [
+        {
+          "author": "Molty",
+          "text": "Cron job created. Script needs Google Calendar & email MCP integration to work fully.",
+          "timestamp": "2026-02-02T04:50:00Z"
+        }
+      ],
+      "createdAt": "2026-02-02T04:50:00Z"
+    },
+    {
+      "id": "task_implement_calendar_integration",
+      "title": "🔧 Implement: Google Calendar & Email Task Extraction",
+      "description": "Build the full integration for the daily task extractor script.\n\n**Requirements:**\n- Connect Google Calendar via MCP (or API)\n- Connect email via Zapier MCP or IMAP\n- Parse events for next 36 hours\n- Auto-generate subtasks based on task type\n- Create Mission Control tasks via script\n\n**MCP Tools Available:**\n- Zapier MCP (90 tools, may include email)\n- May need Google Calendar MCP server\n\n**Deliverables:**\n1. Working script that pulls calendar events\n2. Working script that scans emails\n3. Task creation logic with subtask generation\n4. Testing with real data\n\n**Note:** This is a one-time implementation task. Once complete, the daily extraction works automatically.",
+      "status": "backlog",
+      "project": "default",
+      "tags": ["development", "integration", "calendar", "email", "mcp"],
+      "subtasks": [
+        { "id": "sub_001", "title": "Research Google Calendar MCP servers", "done": false },
+        { "id": "sub_002", "title": "Test Zapier MCP for email access", "done": false },
+        { "id": "sub_003", "title": "Build event parsing logic", "done": false },
+        { "id": "sub_004", "title": "Build subtask generation logic", "done": false },
+        { "id": "sub_005", "title": "Create Mission Control task insertion", "done": false },
+        { "id": "sub_006", "title": "Test with real calendar/email data", "done": false }
+      ],
+      "priority": "high",
+      "comments": [
+        {
+          "author": "Molty",
+          "text": "Created to track implementation needed for automatic task extraction.",
+          "timestamp": "2026-02-02T04:50:00Z"
+        }
+      ],
+      "createdAt": "2026-02-02T04:50:00Z"
     }
   ],
   "projects": [
-    {
-      "id": "default",
-      "name": "My Project",
-      "color": "#3b82f6",
-      "icon": "📁"
-    }
+    { "id": "default", "name": "My Project", "color": "#3b82f6", "icon": "📁" }
   ],
   "activities": [
-    {
-      "type": "completed",
-      "actor": "Molty",
-      "task": "Test: Check Atlanta Sports Today",
-      "time": "just now"
-    }
+    { "type": "completed", "actor": "Molty", "task": "Test: Check Atlanta Sports Today", "time": "just now" },
+    { "type": "created", "actor": "Molty", "task": "Daily: Extract Tasks from Calendar & Email", "time": "just now" },
+    { "type": "created", "actor": "Molty", "task": "Implement: Google Calendar & Email Task Extraction", "time": "just now" }
   ],
-  "lastUpdated": "2026-02-02T04:45:00Z"
+  "lastUpdated": "2026-02-02T04:50:00Z"
 }
