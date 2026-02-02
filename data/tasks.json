@@ -292,6 +292,20 @@
       "priority": "medium",
       "createdAt": "2026-02-02T04:18:59.363Z",
       "createdFromCron": "ce8623c2-5507-4c37-877c-7b1b289687c9"
+    },
+    {
+      "id": "task_1770005946163",
+      "title": "LinkedIn Scraping Morgen",
+      "description": "Schedule: Daily at 09:00\n\n",
+      "status": "backlog",
+      "project": "system",
+      "tags": [
+        "from-cron"
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-02T04:19:06.163Z",
+      "createdFromCron": "9461a8aa-ae0f-49e8-bcc3-807088758adb"
     }
   ],
   "projects": [
