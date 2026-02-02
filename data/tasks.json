@@ -52,7 +52,7 @@
       "subtasks": [],
       "priority": "medium",
       "createdAt": "2026-02-02T05:08:01.661Z",
-      "status": "backlog",
+      "status": "in_progress",
       "sortOrder": 0
     }
   ],
@@ -69,6 +69,14 @@
       "type": "moved",
       "actor": "mccargo21",
       "task": "Restaurant Ideas",
+      "from": "backlog",
+      "to": "in_progress",
+      "time": "just now"
+    },
+    {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "Restaurant Ideas",
       "from": "in_progress",
       "to": "backlog",
       "time": "just now"
@@ -80,5 +88,5 @@
       "time": "just now"
     }
   ],
-  "lastUpdated": "2026-02-02T11:42:16.406Z"
+  "lastUpdated": "2026-02-02T11:42:21.138Z"
 }
