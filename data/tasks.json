@@ -1,32 +1,40 @@
 {
   "tasks": [
     {
-      "id": "mc_update_openclaw_daily",
-      "title": "🔄 Daily: Update OpenClaw",
-      "description": "Recurring task for OpenClaw updates. **Times:**\n- 🔧 5am: Auto-run update script (via OpenClaw cron)\n- 📝 7am: Check update recap & send message (via OpenClaw cron)\n\n**If update is available:**\n1. Update script runs automatically at 5am\n2. If updated, recap script creates message file at 7am\n3. Sub-agent reads recap file and sends to chat\n4. Gateway auto-restarts after update\n\n**No manual action needed** - everything happens automatically via cron jobs.",
-      "status": "permanent",
+      "id": "task_test_atlanta_sports",
+      "title": "🏀 Test: Check Atlanta Sports Today",
+      "description": "Search ESPN for Atlanta sports teams playing today and report back.\n\n**Teams to check:**\n- Atlanta Hawks (NBA)\n- Atlanta Braves (MLB - in season)\n- Atlanta Falcons (NFL - in season)\n- Atlanta United (MLS - in season)\n- Atlanta Dream (WNBA - in season)\n\n**If teams playing:**\n- List games with teams and times\n- Mention channels if available\n\n**If no games:**\n- Send quick message: \"No Atlanta teams playing today\".\n\n**Purpose:** Test Mission Control workflow.",
+      "status": "review",
       "project": "default",
-      "tags": ["daily", "maintenance", "openclaw"],
+      "tags": ["test", "sports", "atlanta"],
       "subtasks": [
-        { "id": "sub_001", "title": "5am: Update script runs automatically", "done": false },
-        { "id": "sub_002", "title": "7am: Check for update notification in chat", "done": false }
+        { "id": "sub_001", "title": "Search ESPN for today's games", "done": true },
+        { "id": "sub_002", "title": "Compile Atlanta teams playing", "done": true },
+        { "id": "sub_003", "title": "Send results to chat", "done": true }
       ],
       "priority": "medium",
       "comments": [
         {
           "author": "Molty",
-          "text": "Updated timing: 5am update, 7am notification. Full automation via cron jobs.",
-          "timestamp": "2026-02-02T04:37:00Z"
+          "text": "Test task created via chat-first workflow.",
+          "timestamp": "2026-02-02T04:40:00Z"
+        },
+        {
+          "author": "Molty",
+          "text": "RESULTS: No Atlanta teams playing today (Feb 2, 2026). NBA All-Star break approaching, other leagues offseason.\n\nNEXT GAME: Atlanta Hawks @ Miami Heat on Tuesday, Feb 3 at 7:30pm ET.",
+          "timestamp": "2026-02-02T04:45:00Z"
         }
       ],
-      "createdAt": "2026-02-02T04:25:00Z"
+      "createdAt": "2026-02-02T04:40:00Z",
+      "processingStartedAt": "2026-02-02T04:40:00Z",
+      "completedAt": "2026-02-02T04:45:00Z"
     }
   ],
   "projects": [
     { "id": "default", "name": "My Project", "color": "#3b82f6", "icon": "📁" }
   ],
   "activities": [
-    { "type": "updated", "actor": "Molty", "task": "Daily: Update OpenClaw", "time": "just now" }
+    { "type": "completed", "actor": "Molty", "task": "Test: Check Atlanta Sports Today", "time": "just now" }
   ],
-  "lastUpdated": "2026-02-02T04:37:00Z"
+  "lastUpdated": "2026-02-02T04:45:00Z"
 }
