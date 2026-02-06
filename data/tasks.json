@@ -1,4 +1,24 @@
-{"tasks": []},
+{
+  "tasks": [
+    {
+      "id": "mc_task_extractor_daily",
+      "title": "📅 Daily: Extract Tasks from Calendar & Email",
+      "description": "Recurring task to pull actionable items from Google Calendar and emails into Mission Control.\n\n**Schedule:**\n- ⏰ 8am: Daily (via OpenClaw cron)\n- 🔍 Scans next 36 hours\n- 📋 Creates tasks with auto-generated subtasks\n- ✅ Uses MCP integration (Zapier)\n\n**What gets extracted:**\n- Google Calendar events (meetings, deadlines)\n- Emails with task keywords (task, to-do, due, deadline, meeting, appointment, reminder)\n- Meeting prep tasks\n- Follow-up tasks",
+      "status": "permanent",
+      "project": "default",
+      "tags": [
+        "daily",
+        "automation",
+        "calendar",
+        "email",
+        "mcp"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_001",
+          "title": "8am: Cron job runs extraction",
+          "done": false
+        },
         {
           "id": "sub_002",
           "title": "Review extracted tasks",
@@ -26,9 +46,7 @@
       "title": "Restaurant Ideas",
       "description": "Send me a message with some dinner options for me and my wife. The location should be 20m drive or less",
       "project": "default",
-      "tags": [
-        ""
-      ],
+      "tags": [],
       "subtasks": [],
       "priority": "medium",
       "createdAt": "2026-02-02T05:08:01.661Z",
@@ -37,7 +55,7 @@
       "comments": [
         {
           "author": "Molty",
-          "text": "Dinner options for Adam & Heather (within 20min drive from Peachtree Corners):\n\n**UPSCALE OPTIONS**\n\n🍽️ **Stäge Kitchen & Bar** (Peachtree Corners - 5 min)\n- Steaks, seafood, pasta, global tapas & elevated sushi\n- Live music, craft cocktails, indoor & patio seating\n- Upscale but relaxed atmosphere\n\n🌊 **Peche Modern Coastal** (Peachtree Corners - 5 min)\n- Modern coastal cuisine with seafood focus\n- Also serves steaks, fresh pasta, pastries\n- Beautiful decor, extensive wine list\n- Great for a date night\n\n🇯🇵 **Sei Ryu** (Peachtree Corners - 5 min)\n- High-end Japanese with omakase service (reservations only)\n- Chef-driven, 15+ years experience\n- Four distinct dining areas including rooftop patio\n- Perfect for special occasions\n\n**ASIAN OPTIONS**\n\n🇯🇵 **Wonder Pho** (Peachtree Corners - 5 min)\n- Authentic Vietnamese cuisine\n- Known for Bánh Xèo and Bánh Cuốn\n- Casual, family-friendly\n\n🇹🇭 **26 Thai Kitchen** (Peachtree Corners - 5 min)\n- Fast-casual authentic Thai at The Forum\n- Pad Thai, curries, street foods\n- Great for quick, flavorful meals\n\n🇰🇷 **Kimchi Red** (Peachtree Corners - 5 min)\n- Korean food and Korean Fried Chicken at Politan Row\n- Bold flavors, grab-and-go speed\n- Food hall experience\n\n🍣 **Pearl Lian** (Duluth/Johns Creek - 8-10 min)\n- Pan-Asian: sushi, Thai, Vietnamese, Chinese\n- Highly respected, open since 2006\n- Some of the best Thai seafood in Atlanta\n- Dine-in or delivery\n\n**CASUAL OPTIONS**\n\n🇮🇹 **Trattoria one41** (Johns Creek - 10-12 min)\n- Southern Italian cuisine\n- Highly rated (4.9★), excellent service\n- Romantic atmosphere, reservations required\n\n🌮 **La Industria Mexican Grill** (Peachtree Corners - 5 min)\n- Authentic Mexican with modern twists\n- Fresh, family-owned\n- Great for something casual but elevated\n\n🇺🇸 **Eating Americana** (Peachtree Corners - 5 min)\n- Great American comfort foods\n- Familiar classics, elevated quality\n- Relaxed, family-friendly atmosphere\n\nAll options are highly rated and within easy driving distance!",
+          "text": "Dinner options for Adam & Heather (within 20min drive from Peachtree Corners):\n\n**UPSCALE OPTIONS**\n\n🍽️ **Stäge Kitchen & Bar** (Peachtree Corners - 5 min)\n- Steaks, seafood, pasta, global tapas & elevated sushi\n- Live music, craft cocktails, indoor & patio seating\n- Upscale but relaxed atmosphere\n\n🌊 **Peche Modern Coastal** (Peachtree Corners - 5 min)\n- Modern coastal cuisine with seafood focus\n- Also serves steaks, fresh pasta, pastries\n- Beautiful decor, extensive wine list\n- Great for a date night\n\n🇯🇵 **Sei Ryu** (Peachtree Corners - 5 min)\n- High-end Japanese with omakase service (reservations only)\n- Chef-driven, 15+ years experience\n- Four distinct dining areas including rooftop patio\n- Perfect for special occasions",
           "timestamp": "2026-02-02T16:15:00Z"
         },
         {
@@ -62,29 +80,6 @@
       "icon": "📁"
     }
   ],
-  "activities": [
-    {
-      "type": "moved",
-      "actor": "mccargo21",
-      "task": "Restaurant Ideas",
-      "from": "backlog",
-      "to": "in_progress",
-      "time": "just now"
-    },
-    {
-      "type": "moved",
-      "actor": "mccargo21",
-      "task": "Restaurant Ideas",
-      "from": "in_progress",
-      "to": "backlog",
-      "time": "just now"
-    },
-    {
-      "type": "updated",
-      "actor": "Molty",
-      "task": "Daily: Extract Tasks from Calendar & Email",
-      "time": "just now"
-    }
-  ],
-  "lastUpdated": "2026-02-02T16:11:57.897Z"
+  "activities": [],
+  "lastUpdated": "2026-02-05T20:53:08.012704"
 }

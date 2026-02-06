@@ -32,3 +32,4 @@ data/.webhook-debug.log
 activepieces-setup/
 status.json
 .update-recap-message.txt
+data/tasks.json.corrupted
