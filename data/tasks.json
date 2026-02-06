@@ -50,7 +50,7 @@
       "subtasks": [],
       "priority": "medium",
       "createdAt": "2026-02-02T05:08:01.661Z",
-      "status": "in_progress",
+      "status": "done",
       "sortOrder": 0,
       "comments": [
         {
@@ -69,7 +69,45 @@
           "text": "Added 4 Asian restaurant options to the list:\n- Sei Ryu (high-end Japanese with omakase)\n- Wonder Pho (Vietnamese)\n- 26 Thai Kitchen (fast-casual Thai)\n- Kimchi Red (Korean fried chicken)\n- Pearl Lian (pan-Asian fusion)\n\nMoved to in_progress to action the feedback.",
           "timestamp": "2026-02-02T16:20:00Z"
         }
-      ]
+      ],
+      "completedAt": "2026-02-06T03:35:36.554Z"
+    },
+    {
+      "id": "task_1770349017221",
+      "title": "Research weekend trip ideas",
+      "description": "Let's explore road trip or cheap flights for me and my 2 boys (9 and 5). We are in atlanta and want to do a long weekend (Feb 12-16)ish. Give me some options under 6 hour drive or 3hr flight (under $160each tix). Take into account cool events or festivals going on.",
+      "project": "",
+      "tags": [
+        ""
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-06T03:36:57.221Z",
+      "status": "review",
+      "sortOrder": 1,
+      "comments": [
+        {
+          "id": "c_1770350469838",
+          "author": "Molty",
+          "text": "## 🏖️ Weekend Trip Research Results\n**Atlanta Area | Feb 12-16, 2026 | You + 2 boys (9 & 5)**\n\n### 🚗 Driving Options (Under 6 hours)\n\n#### 1. 🏖️ Savannah, GA *(4 hours)*\n- Historic cobblestone, pirate history, ghost tours\n- **Forsyth Park** - playgrounds, splash fountain\n- **Savannah Children's Museum** - interactive exhibits\n- **Trolley Tours** - hop-on/hop-off, kids love it\n- **River Street** - candy shops, street performers\n- **Winter festivals** downtown Feb 12-16\n- **Cost:** $200-400 total\n\n#### 2. 🏔️ Gatlinburg/Pigeon Forge, TN *(4 hours)*\n- Mountains, attractions, nonstop family fun\n\n**Pigeon Forge:**\n- **Dollywood** - rides, shows, seasonal events\n- **WonderWorks** - interactive science museum\n- **The Island** - shops, fountain shows, Ferris wheel\n\n**Gatlinburg:**\n- **Gatlinburg SkyLift Park** - mountain views, tubing\n- **Ripley's Aquarium** - sharks, touch pools\n- **Arts & Crafts Loop** - local artisans\n- **Cost:** $300-500\n\n#### 3. 🌊 Panama City Beach, FL *(5-6 hours)*\n- Beach, dolphins, laid back\n- **Pier Park** - mini golf, restaurants\n- **Shell Island** - boat shuttle to pristine beach\n- **Dolphin Tours** - kids love seeing them in wild\n- **Cost:** $250-450\n\n### ✈️ Flight Options (Under 3 hours, <$160/person)\n\n#### 4. 🏰 Orlando, FL *(1.5hr flight, ~$80-140)*\n- Disney, Universal, ICON Park\n- **Epcot International Festival** (check 2026 schedule)\n- **Disney Princess Half Marathon** weekend (usually Feb)\n- **Highlights:** Disney World, Universal Studios, ICON Park\n- **Cost:** $120-200/person flights + $200-400 hotels\n\n#### 5. 🎷 New Orleans, LA *(1.5hr flight, ~$90-150)*\n- Culture, food, riverboats\n- **Mardi Gras Parades** (Feb 17, 2026 = Fat Tuesday!)\n- **Highlights:** Audubon Zoo, Children's Museum, Streetcar rides\n- **Cost:** $100-160/person flights + $150-250 hotels\n\n#### 6. 🏛️ Washington, DC *(2hr flight, ~$100-150)*\n- Museums, monuments, FREE attractions\n- **Presidents Day Weekend** (Feb 15-16, 2026 - PERFECT!)\n- **Highlights:** Smithsonian Air & Space, National Zoo, Monuments\n- **Cost:** $120-150/person flights + $200-300 hotels\n\n### 🎯 Top Recommendations\n\n**🥇 Best Value & Fun:** Savannah, GA\n- Under 4 hours, historic, walkable, kid-friendly\n\n**🥈 Best Timing:** New Orleans, LA  \n- Mardi Gras Feb 17 - perfect pre-celebration\n- Cheap flights, kids love energy\n\n**🥉 Best for Ages:** Orlando, FL\n- 9yo is prime Disney age, 5yo can do most things\n\n**🏆 Best Adventure:** Gatlinburg, TN\n- Mountains + attractions, close drive\n\n### 💡 Notes\n- Flight prices are estimates — check Google Flights for Feb 12-16\n- Winter offseason = low rates (except Orlando)\n- Weather varies: beach (mild), mountains (cold), cities (moderate)",
+          "timestamp": "2026-02-05T23:01:09.838773Z"
+        }
+      ],
+      "completedAt": "2026-02-05T23:01:09.838784Z"
+    },
+    {
+      "id": "task_1770350073822",
+      "title": "Test",
+      "description": "This is a test",
+      "project": "",
+      "tags": [
+        ""
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-06T03:54:33.822Z",
+      "status": "in_progress",
+      "sortOrder": 0
     }
   ],
   "projects": [
@@ -80,6 +118,31 @@
       "icon": "📁"
     }
   ],
-  "activities": [],
-  "lastUpdated": "2026-02-05T20:53:08.012704"
+  "activities": [
+    {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "Test",
+      "from": "backlog",
+      "to": "in_progress",
+      "time": "just now"
+    },
+    {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "Research weekend trip ideas",
+      "from": "backlog",
+      "to": "in_progress",
+      "time": "just now"
+    },
+    {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "Restaurant Ideas",
+      "from": "in_progress",
+      "to": "review",
+      "time": "just now"
+    }
+  ],
+  "lastUpdated": "2026-02-05T23:01:09.838786"
 }
