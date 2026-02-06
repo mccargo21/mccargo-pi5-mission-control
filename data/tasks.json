@@ -106,20 +106,6 @@
         }
       ],
       "completedAt": "2026-02-06T18:43:51.496Z"
-    },
-    {
-      "id": "task_1770350073822",
-      "title": "Test",
-      "description": "This is a test",
-      "project": "",
-      "tags": [
-        ""
-      ],
-      "subtasks": [],
-      "priority": "medium",
-      "createdAt": "2026-02-06T03:54:33.822Z",
-      "status": "in_progress",
-      "sortOrder": 0
     }
   ],
   "projects": [
@@ -164,5 +150,5 @@
       "time": "just now"
     }
   ],
-  "lastUpdated": "2026-02-06T18:43:51.497Z"
+  "lastUpdated": "2026-02-06T18:43:56.493Z"
 }
