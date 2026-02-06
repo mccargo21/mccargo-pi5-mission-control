@@ -28,3 +28,6 @@ skills/*/.clawhub/
 # Task state files (keep local)
 data/.tasks-snapshot.json
 data/.webhook-debug.log
+.update-changes.txt
+activepieces-setup/
+status.json
