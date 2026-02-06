@@ -3,6 +3,7 @@ logs/
 *.log
 config/
 ~/.clawdbot/secrets/
+*.backup.*
 
 # Memory files (keep local)
 memory/
