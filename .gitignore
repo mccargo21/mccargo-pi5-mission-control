@@ -33,4 +33,5 @@ activepieces-setup/
 status.json
 .update-recap-message.txt
 data/tasks.json.corrupted
+data/tasks.json.github
 # testing webhook after recreation
