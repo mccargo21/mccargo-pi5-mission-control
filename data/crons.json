@@ -6,7 +6,7 @@
       "prompt": "Search ESPN for Atlanta sports teams playing today and report back.\n\n**Teams to check:**\n- Atlanta Hawks (NBA)\n- Atlanta Braves (MLB - in season)\n- Atlanta Falcons (NFL - in season)\n- Atlanta United (MLS - in season)\n- Atlanta Dream (WNBA - in season)\n\n**If teams playing:**\n- List games with teams and times\n- Mention channels if available\n\n**If no games:**\n- Send quick message: \"No Atlanta teams playing today\".\n\n**Purpose:** Test Mission Control workflow.\n\nSubtasks:\n- Search ESPN for today's games\n- Compile Atlanta teams playing\n- Send results to chat",
       "schedule": "00 07 * * *",
       "scheduleHuman": "Daily at 07:00",
-      "timezone": "Europe/Berlin",
+      "timezone": "America/New_York",
       "enabled": true,
       "pending": true,
       "createdAt": "2026-02-02T04:42:02.953Z"
