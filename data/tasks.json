@@ -83,7 +83,7 @@
       "subtasks": [],
       "priority": "medium",
       "createdAt": "2026-02-06T03:36:57.221Z",
-      "status": "done",
+      "status": "review",
       "sortOrder": 1,
       "comments": [
         {
@@ -105,7 +105,22 @@
           "timestamp": "2026-02-05T23:22:35.215352Z"
         }
       ],
-      "completedAt": "2026-02-06T18:43:51.496Z"
+      "completedAt": "2026-02-05T23:22:35.215362Z"
+    },
+    {
+      "id": "task_1770350073822",
+      "title": "Test",
+      "description": "This is a test",
+      "project": "",
+      "tags": [
+        ""
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-06T03:54:33.822Z",
+      "status": "done",
+      "sortOrder": 0,
+      "completedAt": "2026-02-07T11:08:00Z"
     }
   ],
   "projects": [
@@ -117,14 +132,6 @@
     }
   ],
   "activities": [
-    {
-      "type": "moved",
-      "actor": "mccargo21",
-      "task": "Research weekend trip ideas",
-      "from": "review",
-      "to": "done",
-      "time": "just now"
-    },
     {
       "type": "moved",
       "actor": "mccargo21",
@@ -150,5 +157,5 @@
       "time": "just now"
     }
   ],
-  "lastUpdated": "2026-02-06T18:43:56.493Z"
+  "lastUpdated": "2026-02-07T11:08:00Z"
 }
