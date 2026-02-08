@@ -1,0 +1,10 @@
+# Pinned Sessions - these won't be deleted by prune-sessions.sh
+# One pattern per line. Supports globs and substring matching.
+# Lines starting with # are comments.
+#
+# Examples:
+#   important-session-id.jsonl     # exact filename
+#   2026-01-21*                    # all sessions from a specific date
+#   main/session-abc123*           # specific agent session by prefix
+#
+# To pin a session, add its filename or a pattern that matches it:

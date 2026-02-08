@@ -1,4 +1,24 @@
-{"tasks": []},
+{
+  "tasks": [
+    {
+      "id": "mc_task_extractor_daily",
+      "title": "📅 Daily: Extract Tasks from Calendar & Email",
+      "description": "Recurring task to pull actionable items from Google Calendar and emails into Mission Control.\n\n**Schedule:**\n- ⏰ 8am: Daily (via OpenClaw cron)\n- 🔍 Scans next 36 hours\n- 📋 Creates tasks with auto-generated subtasks\n- ✅ Uses MCP integration (Zapier)\n\n**What gets extracted:**\n- Google Calendar events (meetings, deadlines)\n- Emails with task keywords (task, to-do, due, deadline, meeting, appointment, reminder)\n- Meeting prep tasks\n- Follow-up tasks",
+      "status": "permanent",
+      "project": "default",
+      "tags": [
+        "daily",
+        "automation",
+        "calendar",
+        "email",
+        "mcp"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_001",
+          "title": "8am: Cron job runs extraction",
+          "done": false
+        },
         {
           "id": "sub_002",
           "title": "Review extracted tasks",
@@ -26,18 +46,16 @@
       "title": "Restaurant Ideas",
       "description": "Send me a message with some dinner options for me and my wife. The location should be 20m drive or less",
       "project": "default",
-      "tags": [
-        ""
-      ],
+      "tags": [],
       "subtasks": [],
       "priority": "medium",
       "createdAt": "2026-02-02T05:08:01.661Z",
-      "status": "in_progress",
+      "status": "done",
       "sortOrder": 0,
       "comments": [
         {
           "author": "Molty",
-          "text": "Dinner options for Adam & Heather (within 20min drive from Peachtree Corners):\n\n**UPSCALE OPTIONS**\n\n🍽️ **Stäge Kitchen & Bar** (Peachtree Corners - 5 min)\n- Steaks, seafood, pasta, global tapas & elevated sushi\n- Live music, craft cocktails, indoor & patio seating\n- Upscale but relaxed atmosphere\n\n🌊 **Peche Modern Coastal** (Peachtree Corners - 5 min)\n- Modern coastal cuisine with seafood focus\n- Also serves steaks, fresh pasta, pastries\n- Beautiful decor, extensive wine list\n- Great for a date night\n\n🇯🇵 **Sei Ryu** (Peachtree Corners - 5 min)\n- High-end Japanese with omakase service (reservations only)\n- Chef-driven, 15+ years experience\n- Four distinct dining areas including rooftop patio\n- Perfect for special occasions\n\n**ASIAN OPTIONS**\n\n🇯🇵 **Wonder Pho** (Peachtree Corners - 5 min)\n- Authentic Vietnamese cuisine\n- Known for Bánh Xèo and Bánh Cuốn\n- Casual, family-friendly\n\n🇹🇭 **26 Thai Kitchen** (Peachtree Corners - 5 min)\n- Fast-casual authentic Thai at The Forum\n- Pad Thai, curries, street foods\n- Great for quick, flavorful meals\n\n🇰🇷 **Kimchi Red** (Peachtree Corners - 5 min)\n- Korean food and Korean Fried Chicken at Politan Row\n- Bold flavors, grab-and-go speed\n- Food hall experience\n\n🍣 **Pearl Lian** (Duluth/Johns Creek - 8-10 min)\n- Pan-Asian: sushi, Thai, Vietnamese, Chinese\n- Highly respected, open since 2006\n- Some of the best Thai seafood in Atlanta\n- Dine-in or delivery\n\n**CASUAL OPTIONS**\n\n🇮🇹 **Trattoria one41** (Johns Creek - 10-12 min)\n- Southern Italian cuisine\n- Highly rated (4.9★), excellent service\n- Romantic atmosphere, reservations required\n\n🌮 **La Industria Mexican Grill** (Peachtree Corners - 5 min)\n- Authentic Mexican with modern twists\n- Fresh, family-owned\n- Great for something casual but elevated\n\n🇺🇸 **Eating Americana** (Peachtree Corners - 5 min)\n- Great American comfort foods\n- Familiar classics, elevated quality\n- Relaxed, family-friendly atmosphere\n\nAll options are highly rated and within easy driving distance!",
+          "text": "Dinner options for Adam & Heather (within 20min drive from Peachtree Corners):\n\n**UPSCALE OPTIONS**\n\n🍽️ **Stäge Kitchen & Bar** (Peachtree Corners - 5 min)\n- Steaks, seafood, pasta, global tapas & elevated sushi\n- Live music, craft cocktails, indoor & patio seating\n- Upscale but relaxed atmosphere\n\n🌊 **Peche Modern Coastal** (Peachtree Corners - 5 min)\n- Modern coastal cuisine with seafood focus\n- Also serves steaks, fresh pasta, pastries\n- Beautiful decor, extensive wine list\n- Great for a date night\n\n🇯🇵 **Sei Ryu** (Peachtree Corners - 5 min)\n- High-end Japanese with omakase service (reservations only)\n- Chef-driven, 15+ years experience\n- Four distinct dining areas including rooftop patio\n- Perfect for special occasions",
           "timestamp": "2026-02-02T16:15:00Z"
         },
         {
@@ -51,7 +69,58 @@
           "text": "Added 4 Asian restaurant options to the list:\n- Sei Ryu (high-end Japanese with omakase)\n- Wonder Pho (Vietnamese)\n- 26 Thai Kitchen (fast-casual Thai)\n- Kimchi Red (Korean fried chicken)\n- Pearl Lian (pan-Asian fusion)\n\nMoved to in_progress to action the feedback.",
           "timestamp": "2026-02-02T16:20:00Z"
         }
-      ]
+      ],
+      "completedAt": "2026-02-06T03:35:36.554Z"
+    },
+    {
+      "id": "task_1770349017221",
+      "title": "Research weekend trip ideas",
+      "description": "Let's explore road trip or cheap flights for me and my 2 boys (9 and 5). We are in atlanta and want to do a long weekend (Feb 12-16)ish. Give me some options under 6 hour drive or 3hr flight (under $160each tix). Take into account cool events or festivals going on.",
+      "project": "",
+      "tags": [
+        ""
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-06T03:36:57.221Z",
+      "status": "review",
+      "sortOrder": 1,
+      "comments": [
+        {
+          "id": "c_1770350469838",
+          "author": "Molty",
+          "text": "## 🏖️ Weekend Trip Research Results\n**Atlanta Area | Feb 12-16, 2026 | You + 2 boys (9 & 5)**\n\n### 🚗 Driving Options (Under 6 hours)\n\n#### 1. 🏖️ Savannah, GA *(4 hours)*\n- Historic cobblestone, pirate history, ghost tours\n- **Forsyth Park** - playgrounds, splash fountain\n- **Savannah Children's Museum** - interactive exhibits\n- **Trolley Tours** - hop-on/hop-off, kids love it\n- **River Street** - candy shops, street performers\n- **Winter festivals** downtown Feb 12-16\n- **Cost:** $200-400 total\n\n#### 2. 🏔️ Gatlinburg/Pigeon Forge, TN *(4 hours)*\n- Mountains, attractions, nonstop family fun\n\n**Pigeon Forge:**\n- **Dollywood** - rides, shows, seasonal events\n- **WonderWorks** - interactive science museum\n- **The Island** - shops, fountain shows, Ferris wheel\n\n**Gatlinburg:**\n- **Gatlinburg SkyLift Park** - mountain views, tubing\n- **Ripley's Aquarium** - sharks, touch pools\n- **Arts & Crafts Loop** - local artisans\n- **Cost:** $300-500\n\n#### 3. 🌊 Panama City Beach, FL *(5-6 hours)*\n- Beach, dolphins, laid back\n- **Pier Park** - mini golf, restaurants\n- **Shell Island** - boat shuttle to pristine beach\n- **Dolphin Tours** - kids love seeing them in wild\n- **Cost:** $250-450\n\n### ✈️ Flight Options (Under 3 hours, <$160/person)\n\n#### 4. 🏰 Orlando, FL *(1.5hr flight, ~$80-140)*\n- Disney, Universal, ICON Park\n- **Epcot International Festival** (check 2026 schedule)\n- **Disney Princess Half Marathon** weekend (usually Feb)\n- **Highlights:** Disney World, Universal Studios, ICON Park\n- **Cost:** $120-200/person flights + $200-400 hotels\n\n#### 5. 🎷 New Orleans, LA *(1.5hr flight, ~$90-150)*\n- Culture, food, riverboats\n- **Mardi Gras Parades** (Feb 17, 2026 = Fat Tuesday!)\n- **Highlights:** Audubon Zoo, Children's Museum, Streetcar rides\n- **Cost:** $100-160/person flights + $150-250 hotels\n\n#### 6. 🏛️ Washington, DC *(2hr flight, ~$100-150)*\n- Museums, monuments, FREE attractions\n- **Presidents Day Weekend** (Feb 15-16, 2026 - PERFECT!)\n- **Highlights:** Smithsonian Air & Space, National Zoo, Monuments\n- **Cost:** $120-150/person flights + $200-300 hotels\n\n### 🎯 Top Recommendations\n\n**🥇 Best Value & Fun:** Savannah, GA\n- Under 4 hours, historic, walkable, kid-friendly\n\n**🥈 Best Timing:** New Orleans, LA  \n- Mardi Gras Feb 17 - perfect pre-celebration\n- Cheap flights, kids love energy\n\n**🥉 Best for Ages:** Orlando, FL\n- 9yo is prime Disney age, 5yo can do most things\n\n**🏆 Best Adventure:** Gatlinburg, TN\n- Mountains + attractions, close drive\n\n### 💡 Notes\n- Flight prices are estimates — check Google Flights for Feb 12-16\n- Winter offseason = low rates (except Orlando)\n- Weather varies: beach (mild), mountains (cold), cities (moderate)",
+          "timestamp": "2026-02-05T23:01:09.838773Z"
+        },
+        {
+          "id": "c_1770351662457",
+          "author": "Molty",
+          "text": "💬 Received feedback: Focus on warm weather + swimming pools. Updating recommendations accordingly.",
+          "timestamp": "2026-02-05T23:21:02.457674Z"
+        },
+        {
+          "id": "c_1770351755215",
+          "author": "Molty",
+          "text": "## 🏊 **Updated: Warm Weather + Swimming Pools Only**\n\nBased on your feedback, here are the **WARM** destinations with hotels that have outdoor pools (Feb 12-16):\n\n### ✈️ **BEST OPTIONS** (Guaranteed pool weather)\n\n#### 1. 🏝️ **Orlando, Florida** ⭐ TOP PICK\n**Why it's perfect:**\n- **Feb temps:** 72°F (22°C) days / 58°F nights — **IDEAL for pools!**\n- Every major hotel has outdoor pools (and many have lazy rivers/water parks)\n- Theme park pools: Disney resort pools, Universal's Volcano Bay, SeaWorld's water park\n\n**Hotel Recommendations with Great Pools:**\n- **Disney's Art of Animation Resort** - \"Big Blue Pool\" + 3 pools, $200-300/night\n- **Universal's Cabana Bay Beach Resort** - 2 pools + lazy river, $180-250/night  \n- **Hilton Orlando Lake Buena Vista** - heated outdoor pool, $150-200/night\n- **Hyatt Regency Grand Cypress** - 5 pools, lazy river, $180-280/night\n\n**Feb Events:**\n- Disney World is fully operational\n- Epcot International Food Festival (check 2026 dates)\n- **Flight:** ~$80-140/person (1.5hr)\n\n---\n\n#### 2. 🌴 **Tampa, Florida** *(2hr flight, ~$90-120)*\n**Why it's great:**\n- **Feb temps:** 70°F (21°C) — **Pool weather!**\n- Less crowded than Orlando\n- **Great beach hotels with pools**\n\n**Hotel Recommendations:**\n- **Tampa Marriott Waterfront** - heated outdoor pool, bay views, $140-200/night\n- **Grand Hyatt Tampa Bay** - multiple pools, $180-250/night\n- **Clearwater Beach hotels** - beach + pools, $120-180/night\n\n**Activities:**\n- **Busch Gardens Tampa** - rides + animals\n- **Clearwater Marine Aquarium** - dolphins, touch tanks\n- **Beach time** - 30 min drive\n\n---\n\n#### 3. 🏝️ **Panama City Beach, FL** *(5-6hr drive)*\n**Why it's good (with caveat):**\n- **Feb temps:** 64°F (18°C) — **MARGINAL for outdoor pools**\n- Heated pools are common (many hotels have them)\n- Beautiful white sand beaches\n\n**Hotel Recommendations:**\n- **Holiday Inn Resort** - **HEATED outdoor pool**, beach access, $100-150/night\n- **Hampton Inn** - heated pool, $90-130/night\n- **Sunset Inn** - **heated pool**, gulf views, $80-120/night\n\n**Activities:**\n- Pier Park (mini golf, shops)\n- Shell Island boat ride\n- Dolphin tours\n\n**⚠️ Note:** Outdoor pools may be chilly — prefer hotels with **heated pools**.\n\n---\n\n### ❌ **TOO COLD FOR POOLS** (Skip these destinations)\n\n- **Savannah, GA** - Feb temps: 55°F (13°C) → Too cold\n- **Gatlinburg, TN** - Feb temps: 45°F (7°C) → Way too cold\n- **Washington, DC** - Feb temps: 42°F (6°C) → No outdoor pools\n\n**New Orleans, LA** - Feb temps: 58°F (14°C) → Borderline (heated pools only)\n\n---\n\n### 🎯 **RECOMMENDATION**\n\n**Orlando is your best bet:**\n- Guaranteed warm weather for outdoor pools\n- Every hotel has pools (many are resort-style)\n- Theme parks have water parks as backup\n- Flights are cheap\n\n**Tampa is #2:**\n- Slightly less crowded than Orlando\n- Cheaper hotels\n- Busch Gardens + Clearwater Beach\n\n**Panama City Beach is #3:**\n- Close drive (5-6 hours)\n- Choose hotels with **heated pools**\n- Beautiful beaches if it's too cool to swim\n\n---\n\nLet me know if you want me to look up specific hotels or dive into any destination!",
+          "timestamp": "2026-02-05T23:22:35.215352Z"
+        }
+      ],
+      "completedAt": "2026-02-05T23:22:35.215362Z"
+    },
+    {
+      "id": "task_1770350073822",
+      "title": "Test",
+      "description": "This is a test",
+      "project": "",
+      "tags": [
+        ""
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-06T03:54:33.822Z",
+      "status": "done",
+      "sortOrder": 0,
+      "completedAt": "2026-02-07T11:08:00Z"
     }
   ],
   "projects": [
@@ -66,7 +135,15 @@
     {
       "type": "moved",
       "actor": "mccargo21",
-      "task": "Restaurant Ideas",
+      "task": "Test",
+      "from": "backlog",
+      "to": "in_progress",
+      "time": "just now"
+    },
+    {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "Research weekend trip ideas",
       "from": "backlog",
       "to": "in_progress",
       "time": "just now"
@@ -76,15 +153,9 @@
       "actor": "mccargo21",
       "task": "Restaurant Ideas",
       "from": "in_progress",
-      "to": "backlog",
-      "time": "just now"
-    },
-    {
-      "type": "updated",
-      "actor": "Molty",
-      "task": "Daily: Extract Tasks from Calendar & Email",
+      "to": "review",
       "time": "just now"
     }
   ],
-  "lastUpdated": "2026-02-02T16:11:57.897Z"
+  "lastUpdated": "2026-02-07T11:08:00Z"
 }

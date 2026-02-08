@@ -18,7 +18,13 @@ HEARTBEAT.md
 .update-status.json
 SETUP-GUIDE.md
 SSH-PUBLIC-KEY.txt
-*.sh
+
+# Root-level setup scripts (keep local, may contain host-specific paths)
+/pi5-headless-setup.sh
+/virtual-display-setup.sh
+
+# Allow scripts/ directory to be tracked
+# (scripts/lib/ and scripts/*.sh are versioned)
 
 # Skill working directories
 skills/.clawdhub/
