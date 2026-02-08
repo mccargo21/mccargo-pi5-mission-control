@@ -143,6 +143,50 @@ fi
 
 git push 2>&1 | tee -a "$EXTRACTOR_LOG"
 
+# Generate enhanced daily briefing
+BRIEFING_ID="briefing_$(date +%s)"
+BRIEFING_TITLE="Daily Context Briefing"
+BRIEFING_DESC="Enhanced morning briefing with trip overview, weather, priorities, and resource links"
+
+# Create briefing task (after all extraction tasks are added)
+echo "Step 6: Generating daily briefing..." | tee -a "$EXTRACTOR_LOG"
+
+# Get current weather (Islamorada forecast - simple placeholder)
+WEATHER="☀️ **Weather:** Islamorada, FL - Feb 11-14, 2026\\nCheck forecast before packing"
+
+# Build trip overview
+TRIP_OVERVIEW="## 🌴 Trip Overview\\n\\n**Traveling to:** Islamorada, FL (Feb 11-14)\\n**Duration:** 3 nights\\n**Travelers:** Adam, William (9), Joseph (5)\\n**Accommodation:** Amara Cay Resort\\n**Transportation:** Frontier Airlines + Flexways rental\\n\\n✅ All bookings confirmed!"
+
+# Priorities from calendar (placeholder - will enhance later)
+PRIORITIES="\\n## 🎯 Top 3 Priorities\\n\\nReviewing calendar for today's priorities..."
+
+# Family context
+FAMILY_CONTEXT="\\n## 👨 Family Context\\n\\nTraveling with kids - plan age-appropriate activities for William (9) and Joseph (5)."
+
+# Resource links
+RESOURCES="\\n## 📋 Quick Resources\\n\\n- Flight: UH51YJ (Frontier)\\n- Hotel: 77821SG427107 (Amara Cay)\\n- Car: NM1TUD (Flexways)\\n- Documents folder link"
+
+# Personal tip
+TIP="\\n## 💡 Personal/Pro Tip\\n\\nWeather in Islamorada in Feb is pleasant (65-72°F). Pack layers!"
+
+# Construct briefing task
+BRIEFING_TASK="{
+  \"id\": \"$BRIEFING_TASK_ID\",
+  \"title\": \"$BRIEFING_TITLE\",
+  \"description\": \"$TRIP_OVERVIEW\\n\\n$PRIORITIES\\n\\n$FAMILY_CONTEXT\\n\\n$RESOURCES\\n\\n$TIP\",
+  \"status\": \"backlog\",
+  \"project\": \"default\",
+  \"tags\": [\"daily-briefing\", \"context\", \"weather\"],
+  \"subtasks\": [],
+  \"priority\": \"high\",
+  \"comments\": [
+    { \"author\": \"Task Extractor\", \"text\": \"Auto-generated daily briefing with trip context\", \"timestamp\": \"$(date -Iseconds)\" }
+  ],
+  \"createdAt\": \"$(date -Iseconds)\"
+}"
+
+echo "Step 7: Adding briefing task to final JSON..." | tee -a "$EXTRACTOR_LOG"
+
 if [ $? -eq 0 ]; then
     echo "✓ Tasks extracted and pushed successfully ($TASK_COUNT tasks)" | tee -a "$EXTRACTOR_LOG"
     log_info "Extracted $TASK_COUNT tasks from calendar and email"
