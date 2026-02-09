@@ -1,0 +1,24 @@
+{
+  "stale_thresholds_days": {
+    "person": 14,
+    "project": 10,
+    "org": 30,
+    "event": 7
+  },
+  "travel_alert_days": [7, 3, 1],
+  "birthday_alert_days": 7,
+  "quiet_hours": {
+    "start": 23,
+    "end": 8
+  },
+  "max_nudges_per_day": 5,
+  "priority_weights": {
+    "birthday": 10,
+    "travel_prep": 9,
+    "follow_up": 7,
+    "stale_project": 6,
+    "relationship_insight": 5,
+    "opportunity": 4
+  },
+  "min_strength_for_followup": 0.5
+}
