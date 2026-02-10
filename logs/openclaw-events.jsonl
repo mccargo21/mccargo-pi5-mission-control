@@ -202,3 +202,5 @@
 {"ts": "2026-02-09T13:59:16Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_travel"}
 {"ts":"2026-02-09T13:59:16Z","level":"info","script":"pi-travel-prep","msg":"Travel prep: 1 upcoming trip(s) detected"}
 {"ts":"2026-02-10T13:36:49Z","level":"info","script":"daily-task-extractor","msg":"Extracted 2 tasks from calendar and email"}
+{"ts": "2026-02-10T14:40:26Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"ts": "2026-02-10T14:40:30Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}

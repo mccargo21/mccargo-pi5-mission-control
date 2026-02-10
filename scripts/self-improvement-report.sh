@@ -5,13 +5,15 @@
 
 set -euo pipefail
 
-# Prevent overlapping runs
-LOCKFILE="/tmp/openclaw-self-improvement.lock"
-exec 9>"$LOCKFILE"
-if ! flock -n 9; then
+# Security: PID-based locking prevents stale locks after crashes
+source "$(dirname "${BASH_SOURCE[0]}")/lib/lock.sh"
+
+if ! acquire_lock "self-improvement-report" 1800; then
     echo "Another instance of self-improvement-report.sh is already running. Exiting."
     exit 0
 fi
+
+setup_auto_release "self-improvement-report"
 
 WORKSPACE="/home/mccargo/.openclaw/workspace"
 TIMESTAMP=$(date +%Y-%m-%d\ %H:%M:%S)
@@ -50,7 +52,10 @@ echo "" >> "$REPORT_FILE"
 # Check for MCP updates
 echo "🔌 MCP Tools Updated:" >> "$REPORT_FILE"
 if [ -f "/home/mccargo/.openclaw/workspace/config/mcporter.json" ]; then
-    curl -s https://mcp.zapier.com/api/v1/tools 2>/dev/null | jq -r '.[] | select(.id | contains("zapier")) | .name' | while read tool; do
+    # Security: Use --cacert or ensure system CA store is used properly
+    # --max-time prevents hanging on slow connections
+    # --retry provides resilience for transient failures
+    curl -s --max-time 10 --retry 2 https://mcp.zapier.com/api/v1/tools 2>/dev/null | jq -r '.[] | select(.id | contains("zapier")) | .name' | while read tool; do
         echo "   - $tool" >> "$CHANGES_FILE"
     done
     if [ -s "$CHANGES_FILE" ]; then

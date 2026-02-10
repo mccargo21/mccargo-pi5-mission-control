@@ -6,16 +6,16 @@
 
 set -euo pipefail
 
-# Prevent overlapping runs
-LOCKFILE="/tmp/openclaw-prune-sessions.lock"
-exec 9>"$LOCKFILE"
-if ! flock -n 9; then
-    echo "Another instance of prune-sessions.sh is already running. Exiting."
+# Security: PID-based locking prevents stale locks after crashes
+source "$(dirname "${BASH_SOURCE[0]}")/lib/lock.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/log.sh"
+
+if ! acquire_lock "prune-sessions" 7200; then
+    log_warn "Another instance is running or lock is stale (< 2 hours old)"
     exit 0
 fi
 
-# Structured logging
-source "$(dirname "${BASH_SOURCE[0]}")/lib/log.sh"
+setup_auto_release "prune-sessions"
 
 WORKSPACE="/home/mccargo/.openclaw/workspace"
 LOG_FILE="$WORKSPACE/logs/maintenance.log"

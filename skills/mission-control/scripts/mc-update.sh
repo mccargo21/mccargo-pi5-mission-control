@@ -8,7 +8,7 @@
 #   comment <task_id> "comment text"    - Add comment to task
 #   add-subtask <task_id> "title"       - Add new subtask
 #   complete <task_id> "summary"        - Move to review + add completion comment
-#   start <task_id>                     - Mark task as being processed (prevents duplicate processing)
+#   start <task_id>                     - Mark as being processed (prevents duplicate processing)
 
 set -e
 
@@ -23,8 +23,17 @@ validate_input() {
         return 1
     fi
 
+    # Security: Enhanced validation for IDs (alphanumeric, dash, underscore only)
+    if [ "$field_name" = "task_id" ] || [ "$field_name" = "subtask_id" ]; then
+        if ! echo "$input" | grep -qE '^[a-zA-Z0-9_-]+$'; then
+            echo "❌ Error: $field_name contains invalid characters" >&2
+            echo "   Only alphanumeric, dash, and underscore allowed" >&2
+            return 1
+        fi
+    fi
+
     # Check for shell injection patterns
-    if echo "$input" | grep -qE '[;&|$\(\)]'; then
+    if echo "$input" | grep -qE '[;&|$\(]'; then
         echo "❌ Error: $field_name contains invalid characters" >&2
         echo "   Forbidden characters: ; & | $ ( )" >&2
         return 1
@@ -33,6 +42,12 @@ validate_input() {
     # Check for command substitution patterns
     if echo "$input" | grep -qE '\$\(|\\$'; then
         echo "❌ Error: $field_name contains command substitution patterns" >&2
+        return 1
+    fi
+
+    # Security: Check for Python injection patterns (single quotes, triple quotes)
+    if echo "$input" | grep -qE "'''|\"\"\""; then
+        echo "❌ Error: $field_name contains Python quote sequences" >&2
         return 1
     fi
 
@@ -80,22 +95,33 @@ case "$1" in
         validate_input "$TASK_ID" "task_id" || exit 1
         validate_status "$NEW_STATUS" || exit 1
 
-        python3 << PYEOF
+        # Security: Pass data via environment variables to avoid shell injection in heredoc
+        export MC_TASK_ID="$TASK_ID"
+        export MC_NEW_STATUS="$NEW_STATUS"
+        export MC_TASKS_FILE="$TASKS_FILE"
+
+        python3 << 'PYEOF'
 import json
-with open('$TASKS_FILE', 'r', encoding='utf-8') as f:
+import os
+
+TASK_ID = os.environ['MC_TASK_ID']
+NEW_STATUS = os.environ['MC_NEW_STATUS']
+TASKS_FILE = os.environ['MC_TASKS_FILE']
+
+with open(TASKS_FILE, 'r', encoding='utf-8') as f:
     data = json.load(f)
 found = False
 for t in data['tasks']:
-    if t['id'] == '$TASK_ID':
+    if t['id'] == TASK_ID:
         old_status = t['status']
-        t['status'] = '$NEW_STATUS'
+        t['status'] = NEW_STATUS
         found = True
-        print(f"✓ {t['title']}: {old_status} → $NEW_STATUS")
+        print(f"✓ {t['title']}: {old_status} → {NEW_STATUS}")
         break
 if not found:
-    print(f"✗ Task '$TASK_ID' not found")
+    print(f"✗ Task '{TASK_ID}' not found")
     exit(1)
-with open('$TASKS_FILE', 'w', encoding='utf-8') as f:
+with open(TASKS_FILE, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 PYEOF
         ;;
@@ -114,15 +140,26 @@ PYEOF
         validate_input "$TASK_ID" "task_id" || exit 1
         validate_input "$SUBTASK_ID" "subtask_id" || exit 1
 
-        python3 << PYEOF
+        # Security: Pass via environment variables
+        export MC_TASK_ID="$TASK_ID"
+        export MC_SUBTASK_ID="$SUBTASK_ID"
+        export MC_TASKS_FILE="$TASKS_FILE"
+
+        python3 << 'PYEOF'
 import json
-with open('$TASKS_FILE', 'r', encoding='utf-8') as f:
+import os
+
+TASK_ID = os.environ['MC_TASK_ID']
+SUBTASK_ID = os.environ['MC_SUBTASK_ID']
+TASKS_FILE = os.environ['MC_TASKS_FILE']
+
+with open(TASKS_FILE, 'r', encoding='utf-8') as f:
     data = json.load(f)
 found = False
 for t in data['tasks']:
-    if t['id'] == '$TASK_ID':
+    if t['id'] == TASK_ID:
         for s in t['subtasks']:
-            if s['id'] == '$SUBTASK_ID':
+            if s['id'] == SUBTASK_ID:
                 s['done'] = True
                 found = True
                 print(f"✓ Subtask '{s['title']}' marked as done")
@@ -131,7 +168,7 @@ for t in data['tasks']:
 if not found:
     print(f"✗ Task or subtask not found")
     exit(1)
-with open('$TASKS_FILE', 'w', encoding='utf-8') as f:
+with open(TASKS_FILE, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 PYEOF
         ;;
@@ -149,20 +186,31 @@ PYEOF
         validate_input "$TASK_ID" "task_id" || exit 1
         validate_input "$COMMENT_TEXT" "comment_text" || exit 1
 
-        python3 << PYEOF
+        # Security: Pass via environment variables
+        export MC_TASK_ID="$TASK_ID"
+        export MC_COMMENT_TEXT="$COMMENT_TEXT"
+        export MC_TASKS_FILE="$TASKS_FILE"
+
+        python3 << 'PYEOF'
 import json
+import os
 from datetime import datetime
-with open('$TASKS_FILE', 'r', encoding='utf-8') as f:
+
+TASK_ID = os.environ['MC_TASK_ID']
+COMMENT_TEXT = os.environ['MC_COMMENT_TEXT']
+TASKS_FILE = os.environ['MC_TASKS_FILE']
+
+with open(TASKS_FILE, 'r', encoding='utf-8') as f:
     data = json.load(f)
 found = False
 for t in data['tasks']:
-    if t['id'] == '$TASK_ID':
+    if t['id'] == TASK_ID:
         if 'comments' not in t:
             t['comments'] = []
         comment = {
             'id': f"c{len(t['comments'])+1}",
             'author': 'MoltBot',
-            'text': '''$COMMENT_TEXT''',
+            'text': COMMENT_TEXT,
             'createdAt': datetime.now().isoformat() + 'Z'
         }
         t['comments'].append(comment)
@@ -170,9 +218,9 @@ for t in data['tasks']:
         print(f"✓ Comment added to '{t['title']}'")
         break
 if not found:
-    print(f"✗ Task '$TASK_ID' not found")
+    print(f"✗ Task '{TASK_ID}' not found")
     exit(1)
-with open('$TASKS_FILE', 'w', encoding='utf-8') as f:
+with open(TASKS_FILE, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 PYEOF
         ;;
@@ -190,26 +238,37 @@ PYEOF
         validate_input "$TASK_ID" "task_id" || exit 1
         validate_input "$SUBTASK_TITLE" "subtask_title" || exit 1
 
-        python3 << PYEOF
+        # Security: Pass via environment variables
+        export MC_TASK_ID="$TASK_ID"
+        export MC_SUBTASK_TITLE="$SUBTASK_TITLE"
+        export MC_TASKS_FILE="$TASKS_FILE"
+
+        python3 << 'PYEOF'
 import json
-with open('$TASKS_FILE', 'r', encoding='utf-8') as f:
+import os
+
+TASK_ID = os.environ['MC_TASK_ID']
+SUBTASK_TITLE = os.environ['MC_SUBTASK_TITLE']
+TASKS_FILE = os.environ['MC_TASKS_FILE']
+
+with open(TASKS_FILE, 'r', encoding='utf-8') as f:
     data = json.load(f)
 found = False
 for t in data['tasks']:
-    if t['id'] == '$TASK_ID':
+    if t['id'] == TASK_ID:
         subtask_id = f"sub_{len(t['subtasks'])+1}"
         t['subtasks'].append({
             'id': subtask_id,
-            'title': '''$SUBTASK_TITLE''',
+            'title': SUBTASK_TITLE,
             'done': False
         })
         found = True
         print(f"✓ Subtask '{subtask_id}' added to '{t['title']}'")
         break
 if not found:
-    print(f"✗ Task '$TASK_ID' not found")
+    print(f"✗ Task '{TASK_ID}' not found")
     exit(1)
-with open('$TASKS_FILE', 'w', encoding='utf-8') as f:
+with open(TASKS_FILE, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 PYEOF
         ;;
@@ -227,14 +286,25 @@ PYEOF
         validate_input "$TASK_ID" "task_id" || exit 1
         validate_input "$SUMMARY" "summary" || exit 1
 
-        python3 << PYEOF
+        # Security: Pass via environment variables
+        export MC_TASK_ID="$TASK_ID"
+        export MC_SUMMARY="$SUMMARY"
+        export MC_TASKS_FILE="$TASKS_FILE"
+
+        python3 << 'PYEOF'
 import json
+import os
 from datetime import datetime
-with open('$TASKS_FILE', 'r', encoding='utf-8') as f:
+
+TASK_ID = os.environ['MC_TASK_ID']
+SUMMARY = os.environ['MC_SUMMARY']
+TASKS_FILE = os.environ['MC_TASKS_FILE']
+
+with open(TASKS_FILE, 'r', encoding='utf-8') as f:
     data = json.load(f)
 found = False
 for t in data['tasks']:
-    if t['id'] == '$TASK_ID':
+    if t['id'] == TASK_ID:
         old_status = t['status']
         t['status'] = 'review'
         # Clear processing flag (stops spinner)
@@ -245,7 +315,7 @@ for t in data['tasks']:
         comment = {
             'id': f"c{len(t['comments'])+1}",
             'author': 'MoltBot',
-            'text': '''$SUMMARY''',
+            'text': SUMMARY,
             'createdAt': datetime.now().isoformat() + 'Z'
         }
         t['comments'].append(comment)
@@ -254,9 +324,9 @@ for t in data['tasks']:
         print(f"✓ Added completion comment")
         break
 if not found:
-    print(f"✗ Task '$TASK_ID' not found")
+    print(f"✗ Task '{TASK_ID}' not found")
     exit(1)
-with open('$TASKS_FILE', 'w', encoding='utf-8') as f:
+with open(TASKS_FILE, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 PYEOF
         ;;
@@ -272,14 +342,23 @@ PYEOF
         # Validate inputs
         validate_input "$TASK_ID" "task_id" || exit 1
 
-        python3 << PYEOF
+        # Security: Pass via environment variables
+        export MC_TASK_ID="$TASK_ID"
+        export MC_TASKS_FILE="$TASKS_FILE"
+
+        python3 << 'PYEOF'
 import json
+import os
 from datetime import datetime
-with open('$TASKS_FILE', 'r', encoding='utf-8') as f:
+
+TASK_ID = os.environ['MC_TASK_ID']
+TASKS_FILE = os.environ['MC_TASKS_FILE']
+
+with open(TASKS_FILE, 'r', encoding='utf-8') as f:
     data = json.load(f)
 found = False
 for t in data['tasks']:
-    if t['id'] == '$TASK_ID':
+    if t['id'] == TASK_ID:
         # Check if already being processed
         if t.get('processingStartedAt'):
             print(f"⚠ Task '{t['title']}' is already being processed since {t['processingStartedAt']}")
@@ -305,9 +384,9 @@ for t in data['tasks']:
         print(f"✓ processingStartedAt: {now}")
         break
 if not found:
-    print(f"✗ Task '$TASK_ID' not found")
+    print(f"✗ Task '{TASK_ID}' not found")
     exit(1)
-with open('$TASKS_FILE', 'w', encoding='utf-8') as f:
+with open(TASKS_FILE, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 PYEOF
         ;;

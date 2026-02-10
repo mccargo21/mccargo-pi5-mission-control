@@ -4,13 +4,14 @@
 
 set -euo pipefail
 
-# Prevent overlapping runs
-LOCKFILE="/tmp/openclaw-git-status.lock"
-exec 9>"$LOCKFILE"
-if ! flock -n 9; then
-    echo "Another instance of check-git-status.sh is already running. Exiting."
+# Security: PID-based locking prevents stale locks after crashes
+source "$(dirname "${BASH_SOURCE[0]}")/lib/lock.sh"
+
+if ! acquire_lock "check-git-status" 1800; then
     exit 0
 fi
+
+setup_auto_release "check-git-status"
 
 WORKSPACE="/home/mccargo/.openclaw/workspace"
 LOG_FILE="$WORKSPACE/logs/git-status-$(date +%Y%m%d).log"

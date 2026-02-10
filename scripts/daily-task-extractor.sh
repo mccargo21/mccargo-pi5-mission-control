@@ -5,16 +5,16 @@
 
 set -euo pipefail
 
-# Prevent overlapping runs
-LOCKFILE="/tmp/openclaw-task-extractor.lock"
-exec 9>"$LOCKFILE"
-if ! flock -n 9; then
-    echo "Another instance of daily-task-extractor.sh is already running. Exiting."
+# Security: PID-based locking prevents stale locks after crashes
+source "$(dirname "${BASH_SOURCE[0]}")/lib/lock.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/log.sh"
+
+if ! acquire_lock "daily-task-extractor" 3600; then
+    log_warn "Another instance is running or lock is stale (< 1 hour old)"
     exit 0
 fi
 
-# Structured logging
-source "$(dirname "${BASH_SOURCE[0]}")/lib/log.sh"
+setup_auto_release "daily-task-extractor"
 
 WORKSPACE="/home/mccargo/.openclaw/workspace"
 TASKS_FILE="$WORKSPACE/data/tasks.json"
@@ -53,6 +53,9 @@ NEW_TASKS_JSON='{"tasks": ['
 
 echo "Step 1: Fetching Google Calendar events..." >> "$EXTRACTOR_LOG"
 
+# Alert configuration
+ALERT_ON_FAILURE=true
+
 # Get calendar events using mcporter
 CALENDAR_OUTPUT=$(cd "$WORKSPACE" && timeout 30 mcporter call zapier.google_calendar_find_events instructions="Find all calendar events in the specified time range" output_hint="Return event summary with title, time, and location" start_time="$TODAY" end_time="$NEXT_36H" 2>&1)
 CALENDAR_EXIT=$?
@@ -89,6 +92,34 @@ if [ $CALENDAR_EXIT -eq 0 ]; then
         }' <<< "")
 
     NEW_TASKS_JSON="{\"tasks\": [$NEW_TASKS_JSON,"
+else
+    # Security: Log error without exposing sensitive details
+    echo "ERROR: Calendar fetch failed (exit code: $CALENDAR_EXIT)" >> "$EXTRACTOR_LOG"
+    log_error "Calendar fetch failed with exit code $CALENDAR_EXIT"
+    if [ "$ALERT_ON_FAILURE" = true ]; then
+        # Create error task for visibility
+        TASK_COUNT=$((TASK_COUNT + 1))
+        TASK_ID="error_cal_$(date +%s)"
+        ERROR_TASK=$(jq -n \
+            --arg id "$TASK_ID" \
+            --arg ts "$(date -Iseconds)" \
+            --arg error "Calendar API call failed (exit $CALENDAR_EXIT)" \
+            '{
+                id: $id,
+                title: "⚠️ Error: Calendar Fetch Failed",
+                description: ("Failed to fetch calendar events.\n\nError: " + $error + "\n\n**Action required:** Check mcporter/Zapier connectivity."),
+                status: "backlog",
+                project: "default",
+                tags: ["error", "auto-extracted", "calendar"],
+                subtasks: [],
+                priority: "high",
+                comments: [
+                    {author: "Task Extractor", text: "Auto-generated error report", timestamp: $ts}
+                ],
+                createdAt: $ts
+            }' <<< "")
+        NEW_TASKS_JSON="{\"tasks\": [$ERROR_TASK,"
+    fi
 fi
 
 echo "Step 2: Fetching emails with task keywords..." >> "$EXTRACTOR_LOG"
@@ -132,6 +163,38 @@ if [ $EMAIL_EXIT -eq 0 ]; then
         NEW_TASKS_JSON="${NEW_TASKS_JSON}${EMAIL_TASK},"
     else
         NEW_TASKS_JSON="{\"tasks\": [${EMAIL_TASK},"
+    fi
+else
+    # Security: Log error without exposing sensitive details
+    echo "ERROR: Email fetch failed (exit code: $EMAIL_EXIT)" >> "$EXTRACTOR_LOG"
+    log_error "Email fetch failed with exit code $EMAIL_EXIT"
+    if [ "$ALERT_ON_FAILURE" = true ]; then
+        # Create error task for visibility
+        TASK_COUNT=$((TASK_COUNT + 1))
+        TASK_ID="error_email_$(date +%s)"
+        ERROR_TASK=$(jq -n \
+            --arg id "$TASK_ID" \
+            --arg ts "$(date -Iseconds)" \
+            --arg error "Gmail API call failed (exit $EMAIL_EXIT)" \
+            '{
+                id: $id,
+                title: "⚠️ Error: Email Fetch Failed",
+                description: ("Failed to fetch task-related emails.\n\nError: " + $error + "\n\n**Action required:** Check mcporter/Zapier connectivity and Gmail API permissions."),
+                status: "backlog",
+                project: "default",
+                tags: ["error", "auto-extracted", "email"],
+                subtasks: [],
+                priority: "high",
+                comments: [
+                    {author: "Task Extractor", text: "Auto-generated error report", timestamp: $ts}
+                ],
+                createdAt: $ts
+            }' <<< "")
+        if [ -n "$NEW_TASKS_JSON" ]; then
+            NEW_TASKS_JSON="${NEW_TASKS_JSON}${ERROR_TASK},"
+        else
+            NEW_TASKS_JSON="{\"tasks\": [${ERROR_TASK},"
+        fi
     fi
 fi
 
