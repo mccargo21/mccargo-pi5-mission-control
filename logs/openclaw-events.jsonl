@@ -204,3 +204,33 @@
 {"ts":"2026-02-10T13:36:49Z","level":"info","script":"daily-task-extractor","msg":"Extracted 2 tasks from calendar and email"}
 {"ts": "2026-02-10T14:40:26Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
 {"ts": "2026-02-10T14:40:30Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-10T14:49:32Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"ts": "2026-02-10T14:49:32Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-10T14:49:32Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-10T14:49:33Z", "level": "info", "script": "kg-bridge", "command": "init", "msg": "Executing command"}
+{"ts": "2026-02-10T14:49:33Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts": "2026-02-10T14:49:33Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts": "2026-02-10T14:49:33Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"ts": "2026-02-10T14:50:33Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"ts": "2026-02-10T14:50:34Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-10T14:50:34Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-10T14:50:56Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"ts": "2026-02-10T14:50:56Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-10T14:50:56Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-10T14:50:56Z", "level": "info", "script": "kg-bridge", "command": "init", "msg": "Executing command"}
+{"ts": "2026-02-10T14:50:56Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts": "2026-02-10T14:50:56Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts": "2026-02-10T14:50:57Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"ts": "2026-02-10T14:51:26Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"ts": "2026-02-10T14:51:26Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-10T14:51:27Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-10T14:51:27Z", "level": "info", "script": "kg-bridge", "command": "init", "msg": "Executing command"}
+{"ts": "2026-02-10T14:51:27Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts": "2026-02-10T14:51:27Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts": "2026-02-10T14:51:27Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"ts": "2026-02-10T15:01:19Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"ts": "2026-02-10T15:01:19Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-10T15:01:20Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts": "2026-02-10T15:01:20Z", "level": "info", "script": "kg-bridge", "command": "get", "msg": "Executing command"}
+{"ts": "2026-02-10T15:01:20Z", "level": "info", "script": "kg-bridge", "command": "delete_entity", "msg": "Executing command"}
+{"ts": "2026-02-10T15:01:20Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
