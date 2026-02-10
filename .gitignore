@@ -6,3 +6,8 @@ config/
 *.secrets
 .env.secrets
 credentials/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
