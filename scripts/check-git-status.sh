@@ -31,36 +31,43 @@ UNCOMMITTED=""
 CONFLICTS=0
 DETACHED=""
 
+# Change to workspace before running git commands
+cd "$WORKSPACE" || exit 1
+
 # Get git status (filtered to skip branch status line "##...")
 STATUS=$(git status --short 2>&1)
 
-# Check for uncommitted changes (lines starting with whitespace " M")
-echo "$STATUS" | while IFS=' ' read -r line; do
-    if [[ "$line" =~ ^[[:space:]]M ]]; then
-        UNCOMMITTED="Uncommitted changes found"
-        break
-done
+# Check for staged modifications (M at start of line - indicates changes that should be committed)
+if echo "$STATUS" | grep -qE '^M '; then
+    UNCOMMITTED="Staged changes not committed"
+fi
 
-# Check for merge conflicts (files in both stages)
-echo "$STATUS" | while IFS=' ' read -r line; do
-    if [[ "$line" =~ ^UU ]]; then
-        ((CONFLICTS++))
-        fi
-done
+# Check for merge conflicts (all unmerged states: DD, AU, UD, UA, DU, AA, UU)
+CONFLICTS=$(echo "$STATUS" | grep -cE '^(DD|AU|UA|DU|UD|AA|UU) ' || true)
 
 # Check for detached HEAD
-if git rev-parse --is-inside-work-tree 2>/dev/null; then
-    DETACHED="Detached HEAD"
+if git rev-parse --is-inside-work-tree 2>/dev/null && git symbolic-ref --quiet HEAD >/dev/null 2>&1; then
+    DETACHED=""
+else
+    if git rev-parse --is-inside-work-tree 2>/dev/null; then
+        DETACHED="Detached HEAD"
+    fi
 fi
 
 # Log results
 echo "" >> "$LOG_FILE"
 
-if [ -n "$UNCOMMITTED" -o -n "$CONFLICTS" -gt 0 -o -z "$DETACHED" ]; then
+HAS_ISSUES=0
+
+if [ -n "$UNCOMMITTED" ] || [ "$CONFLICTS" -gt 0 ] || [ -n "$DETACHED" ]; then
+    HAS_ISSUES=1
     echo "⚠️ Git issues detected:" >> "$LOG_FILE"
     [ -n "$UNCOMMITTED" ] && echo "    - $UNCOMMITTED" >> "$LOG_FILE"
     [ "$CONFLICTS" -gt 0 ] && echo "    - Merge conflicts ($CONFLICTS files)" >> "$LOG_FILE"
     [ -n "$DETACHED" ] && echo "    - $DETACHED" >> "$LOG_FILE"
+fi
+
+if [ "$HAS_ISSUES" -eq 1 ]; then
     exit 1
 else
     echo "✅ All projects are clean" >> "$LOG_FILE"

@@ -1,0 +1,4 @@
+# SSH Public Key for mccargo-pi5
+# Add this to ~/.ssh/authorized_keys on any machine you want to SSH FROM
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMmdxhpYKRzt/1l/f5ZpogFsB8voCr0A2Dts2XdE0Qx mccargo@mccargo-pi5

@@ -1,0 +1,204 @@
+{"ts": "2026-02-08T01:30:42Z", "level": "info", "script": "brain_bridge", "command": "recall", "msg": "Executing command"}
+{"ts":"2026-02-08T21:10:15Z","level":"info","script":"kg","msg":"kg.sh: init"}
+{"ts":"2026-02-08T21:10:22Z","level":"info","script":"kg","msg":"kg.sh: init"}
+{"ts": "2026-02-08T21:10:22Z", "level": "info", "script": "kg-bridge", "command": "init", "msg": "Executing command"}
+{"ts":"2026-02-08T21:10:57Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts":"2026-02-08T21:11:00Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:04Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:08Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts":"2026-02-08T21:11:23Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:23Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:27Z","level":"info","script":"kg","msg":"kg.sh: init"}
+{"ts":"2026-02-08T21:11:27Z","level":"error","script":"kg","msg":"kg.sh: invalid JSON args for init"}
+{"ts":"2026-02-08T21:11:34Z","level":"info","script":"kg","msg":"kg.sh: init"}
+{"ts": "2026-02-08T21:11:34Z", "level": "info", "script": "kg-bridge", "command": "init", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:37Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:37Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:37Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:37Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:38Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:38Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:38Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:38Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:38Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:38Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:38Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:38Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:38Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:39Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:39Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:39Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:39Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:39Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:39Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:39Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:39Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:39Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:39Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:40Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:40Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:40Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:40Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:40Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:40Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:40Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:40Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:40Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:41Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:41Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:41Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:41Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:41Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:41Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:41Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:41Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:41Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:42Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:42Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:42Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:42Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:42Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:42Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:11:42Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:42Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:42Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:42Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:43Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:43Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:43Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:43Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:43Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:43Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:43Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:43Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:43Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:43Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:44Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:44Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:44Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:44Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:44Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:44Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:44Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:44Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:44Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:44Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:45Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:45Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:45Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:45Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:45Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:45Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:45Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:45Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:46Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:46Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:46Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:46Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:46Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:46Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:46Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:46Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:46Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:47Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:47Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:47Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:47Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:47Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:47Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:11:47Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:11:47Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:12:33Z","level":"info","script":"kg","msg":"kg.sh: stats"}
+{"ts": "2026-02-08T21:12:34Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts":"2026-02-08T21:12:34Z","level":"info","script":"kg","msg":"kg.sh: get"}
+{"ts": "2026-02-08T21:12:34Z", "level": "info", "script": "kg-bridge", "command": "get", "msg": "Executing command"}
+{"ts": "2026-02-08T21:14:55Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_travel"}
+{"ts": "2026-02-08T21:14:58Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: morning_briefing"}
+{"ts":"2026-02-08T21:16:24Z","level":"info","script":"kg","msg":"kg.sh: init"}
+{"ts": "2026-02-08T21:16:25Z", "level": "info", "script": "kg-bridge", "command": "init", "msg": "Executing command"}
+{"ts":"2026-02-08T21:16:25Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:16:25Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:16:25Z","level":"info","script":"kg","msg":"kg.sh: get"}
+{"ts": "2026-02-08T21:16:25Z", "level": "info", "script": "kg-bridge", "command": "get", "msg": "Executing command"}
+{"ts":"2026-02-08T21:16:25Z","level":"info","script":"kg","msg":"kg.sh: stale"}
+{"ts": "2026-02-08T21:16:25Z", "level": "info", "script": "kg-bridge", "command": "stale", "msg": "Executing command"}
+{"ts": "2026-02-08T21:16:25Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"ts":"2026-02-08T21:16:25Z","level":"info","script":"pi-morning-briefing","msg":"Morning briefing starting"}
+{"ts": "2026-02-08T21:16:26Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: morning_briefing"}
+{"ts":"2026-02-08T21:16:26Z","level":"info","script":"pi-morning-briefing","msg":"Morning briefing complete"}
+{"ts":"2026-02-08T21:16:26Z","level":"info","script":"pi-travel-prep","msg":"Travel prep monitor starting"}
+{"ts": "2026-02-08T21:16:26Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_travel"}
+{"ts":"2026-02-08T21:16:26Z","level":"info","script":"pi-travel-prep","msg":"Travel prep: 1 upcoming trip(s) detected"}
+{"ts":"2026-02-08T21:16:30Z","level":"info","script":"kg","msg":"kg.sh: delete_entity"}
+{"ts": "2026-02-08T21:16:30Z", "level": "info", "script": "kg-bridge", "command": "delete_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:16:30Z","level":"info","script":"kg","msg":"kg.sh: stats"}
+{"ts": "2026-02-08T21:16:30Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts": "2026-02-08T21:25:21Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: morning_briefing"}
+{"ts":"2026-02-08T21:28:05Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:28:06Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:28:25Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:28:25Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:29:40Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:29:40Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:29:40Z","level":"info","script":"kg","msg":"kg.sh: upsert_entity"}
+{"ts": "2026-02-08T21:29:40Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts":"2026-02-08T21:29:40Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:29:41Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:29:41Z","level":"info","script":"kg","msg":"kg.sh: upsert_relation"}
+{"ts": "2026-02-08T21:29:41Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts":"2026-02-08T21:29:41Z","level":"info","script":"kg","msg":"kg.sh: get"}
+{"ts": "2026-02-08T21:29:41Z", "level": "info", "script": "kg-bridge", "command": "get", "msg": "Executing command"}
+{"ts":"2026-02-08T21:30:04Z","level":"info","script":"kg","msg":"kg.sh: stats"}
+{"ts": "2026-02-08T21:30:04Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts": "2026-02-08T21:30:04Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: morning_briefing"}
+{"ts": "2026-02-08T21:30:04Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_travel"}
+{"ts":"2026-02-08T21:33:42Z","level":"info","script":"pi-travel-prep","msg":"Travel prep monitor starting"}
+{"ts": "2026-02-08T21:33:42Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_travel"}
+{"ts":"2026-02-08T21:33:42Z","level":"info","script":"pi-travel-prep","msg":"Travel prep: 1 upcoming trip(s) detected"}
+{"ts": "2026-02-08T22:18:07Z", "level": "error", "script": "kg-bridge", "command": "", "msg": "Invalid JSON input"}
+{"ts": "2026-02-08T22:18:07Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:18:07Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:18:07Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:18:07Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:18:07Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:18:08Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: "}
+{"ts": "2026-02-08T22:18:08Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:18:08Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:18:08Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:18:15Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-08T22:18:38Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-08T22:18:38Z", "level": "error", "script": "kg-bridge", "command": "query", "msg": "Incorrect number of bindings supplied. The current statement uses 0, and there are 1 supplied."}
+{"ts": "2026-02-08T22:18:38Z", "level": "error", "script": "kg-bridge", "command": "", "msg": "Invalid JSON input"}
+{"ts": "2026-02-08T22:19:01Z", "level": "error", "script": "kg-bridge", "command": "", "msg": "Invalid JSON input"}
+{"ts": "2026-02-08T22:19:01Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:01Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:01Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:02Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:02Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:02Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:02Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:02Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:02Z", "level": "info", "script": "kg-bridge", "command": "", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:08Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:09Z", "level": "info", "script": "kg-bridge", "command": "upsert_entity", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:09Z", "level": "error", "script": "kg-bridge", "command": "upsert_entity", "msg": "CHECK constraint failed: type IN (\n        'person','org','project','place','event','topic','skill'\n    )"}
+{"ts": "2026-02-08T22:19:10Z", "level": "info", "script": "kg-bridge", "command": "get", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:11Z", "level": "info", "script": "kg-bridge", "command": "upsert_relation", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:12Z", "level": "info", "script": "kg-bridge", "command": "stale", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:13Z", "level": "error", "script": "kg-bridge", "command": "", "msg": "Invalid JSON input"}
+{"ts": "2026-02-08T22:19:26Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:26Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-08T22:19:27Z", "level": "error", "script": "kg-bridge", "command": "", "msg": "Invalid JSON input"}
+{"ts": "2026-02-08T22:20:30Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts": "2026-02-08T22:20:31Z", "level": "info", "script": "kg-bridge", "command": "query", "msg": "Executing command"}
+{"ts": "2026-02-08T22:20:31Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: morning_briefing"}
+{"ts": "2026-02-08T22:20:31Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_birthdays"}
+{"ts":"2026-02-08T22:20:31Z","level":"info","script":"kg","msg":"kg.sh: stats"}
+{"ts": "2026-02-08T22:20:32Z", "level": "info", "script": "kg-bridge", "command": "stats", "msg": "Executing command"}
+{"ts":"2026-02-09T13:49:37Z","level":"info","script":"pi-morning-briefing","msg":"Morning briefing starting"}
+{"ts": "2026-02-09T13:49:37Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: morning_briefing"}
+{"ts":"2026-02-09T13:49:37Z","level":"info","script":"pi-morning-briefing","msg":"Morning briefing complete"}
+{"ts":"2026-02-09T13:59:16Z","level":"info","script":"pi-travel-prep","msg":"Travel prep monitor starting"}
+{"ts": "2026-02-09T13:59:16Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_travel"}
+{"ts":"2026-02-09T13:59:16Z","level":"info","script":"pi-travel-prep","msg":"Travel prep: 1 upcoming trip(s) detected"}
+{"ts":"2026-02-10T13:36:49Z","level":"info","script":"daily-task-extractor","msg":"Extracted 2 tasks from calendar and email"}

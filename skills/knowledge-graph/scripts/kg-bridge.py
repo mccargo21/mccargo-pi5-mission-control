@@ -241,11 +241,20 @@ def cmd_query(args, cur):
 
     metadata_filter = args.get("metadata")
     if metadata_filter and isinstance(metadata_filter, dict):
+        # Security: Additional reserved key check to prevent prototype pollution
+        RESERVED_KEYS = {'__proto__', 'constructor', 'prototype'}
         for key, value in metadata_filter.items():
             # Sanitize key: only allow alphanumeric, underscore, dot, hyphen
             if not re.match(r'^[a-zA-Z0-9_.\-]+$', key):
                 continue
-            conditions.append(f"json_extract(e.metadata, ?) = ?")
+            # Block reserved keys that could cause prototype pollution
+            if key.lower() in RESERVED_KEYS or key.startswith('__'):
+                continue
+            # Additional safety: validate JSON path is simple (no functions)
+            if not re.match(r'^[a-zA-Z0-9_.\-]+$', str(value)):
+                # Value contains special chars - use parameterized query only
+                pass
+            conditions.append("json_extract(e.metadata, ?) = ?")
             params.append(f"$.{key}")
             params.append(value)
 

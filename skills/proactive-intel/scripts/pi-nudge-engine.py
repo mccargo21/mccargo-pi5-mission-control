@@ -437,9 +437,37 @@ def _days_since(iso_ts):
 
 # ─── Dispatch ────────────────────────────────────────────────────────────────
 
+# Security: Maximum payload size to prevent DoS (10MB)
+MAX_PAYLOAD_SIZE = 10 * 1024 * 1024
+
+
+def safe_json_loads(stream):
+    """Read JSON from stream with size limits to prevent memory exhaustion."""
+    # Read in chunks to check size before full parse
+    chunks = []
+    total_size = 0
+    chunk_size = 8192
+
+    while True:
+        chunk = stream.read(chunk_size)
+        if not chunk:
+            break
+        total_size += len(chunk)
+        if total_size > MAX_PAYLOAD_SIZE:
+            raise ValueError(f"Payload exceeds maximum size of {MAX_PAYLOAD_SIZE} bytes")
+        chunks.append(chunk)
+
+    data = ''.join(chunks)
+    return json.loads(data)
+
+
 def main():
     try:
-        input_data = json.loads(sys.stdin.read())
+        input_data = safe_json_loads(sys.stdin)
+    except ValueError as e:
+        log_event("error", f"Payload size error: {e}", "pi-nudge-engine")
+        print(json.dumps({"error": "Payload too large", "success": False}))
+        return
     except json.JSONDecodeError:
         log_event("error", "Invalid JSON input", "pi-nudge-engine")
         print(json.dumps({"error": "Invalid JSON input", "success": False}))

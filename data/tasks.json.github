@@ -1,0 +1,139 @@
+{
+  "tasks": [
+    {
+      "id": "mc_task_extractor_daily",
+      "title": "📅 Daily: Extract Tasks from Calendar & Email",
+      "description": "Recurring task to pull actionable items from Google Calendar and emails into Mission Control.\n\n**Schedule:**\n- ⏰ 8am: Daily (via OpenClaw cron)\n- 🔍 Scans next 36 hours\n- 📋 Creates tasks with auto-generated subtasks\n- ✅ Uses MCP integration (Zapier)\n\n**What gets extracted:**\n- Google Calendar events (meetings, deadlines)\n- Emails with task keywords (task, to-do, due, deadline, meeting, appointment, reminder)\n- Meeting prep tasks\n- Follow-up tasks",
+      "status": "permanent",
+      "project": "default",
+      "tags": [
+        "daily",
+        "automation",
+        "calendar",
+        "email",
+        "mcp"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_001",
+          "title": "8am: Cron job runs extraction",
+          "done": false
+        },
+        {
+          "id": "sub_002",
+          "title": "Review extracted tasks",
+          "done": false
+        },
+        {
+          "id": "sub_003",
+          "title": "Adjust priorities as needed",
+          "done": false
+        }
+      ],
+      "priority": "medium",
+      "comments": [
+        {
+          "author": "Molty",
+          "text": "Cron job created. MCP integration implemented via mcporter + Zapier.",
+          "timestamp": "2026-02-02T04:52:00Z"
+        }
+      ],
+      "createdAt": "2026-02-02T04:50:00Z",
+      "sortOrder": 0
+    },
+    {
+      "id": "task_1770008881661",
+      "title": "Restaurant Ideas",
+      "description": "Send me a message with some dinner options for me and my wife. The location should be 20m drive or less",
+      "project": "default",
+      "tags": [],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-02T05:08:01.661Z",
+      "status": "done",
+      "sortOrder": 0,
+      "comments": [
+        {
+          "author": "Molty",
+          "text": "Dinner options for Adam & Heather (within 20min drive from Peachtree Corners):\n\n**UPSCALE OPTIONS**\n\n🍽️ **Stäge Kitchen & Bar** (Peachtree Corners - 5 min)\n- Steaks, seafood, pasta, global tapas & elevated sushi\n- Live music, craft cocktails, indoor & patio seating\n- Upscale but relaxed atmosphere\n\n🌊 **Peche Modern Coastal** (Peachtree Corners - 5 min)\n- Modern coastal cuisine with seafood focus\n- Also serves steaks, fresh pasta, pastries\n- Beautiful decor, extensive wine list\n- Great for a date night\n\n🇯🇵 **Sei Ryu** (Peachtree Corners - 5 min)\n- High-end Japanese with omakase service (reservations only)\n- Chef-driven, 15+ years experience\n- Four distinct dining areas including rooftop patio\n- Perfect for special occasions",
+          "timestamp": "2026-02-02T16:15:00Z"
+        },
+        {
+          "id": "c_1770048715745",
+          "author": "mccargo21",
+          "text": "These are good ideas. Let review more asian options and update the list here.",
+          "createdAt": "2026-02-02T16:11:55.745Z"
+        },
+        {
+          "author": "Molty",
+          "text": "Added 4 Asian restaurant options to the list:\n- Sei Ryu (high-end Japanese with omakase)\n- Wonder Pho (Vietnamese)\n- 26 Thai Kitchen (fast-casual Thai)\n- Kimchi Red (Korean fried chicken)\n- Pearl Lian (pan-Asian fusion)\n\nMoved to in_progress to action the feedback.",
+          "timestamp": "2026-02-02T16:20:00Z"
+        }
+      ],
+      "completedAt": "2026-02-06T03:35:36.554Z"
+    },
+    {
+      "id": "task_1770349017221",
+      "title": "Research weekend trip ideas",
+      "description": "Let's explore road trip or cheap flights for me and my 2 boys (9 and 5). We are in atlanta and want to do a long weekend (Feb 12-16)ish. Give me some options under 6 hour drive or 3hr flight (under $160each tix). Take into account cool events or festivals going on.",
+      "project": "",
+      "tags": [
+        ""
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-06T03:36:57.221Z",
+      "status": "in_progress",
+      "sortOrder": 1
+    },
+    {
+      "id": "task_1770350073822",
+      "title": "Test",
+      "description": "This is a test",
+      "project": "",
+      "tags": [
+        ""
+      ],
+      "subtasks": [],
+      "priority": "medium",
+      "createdAt": "2026-02-06T03:54:33.822Z",
+      "status": "in_progress",
+      "sortOrder": 0
+    }
+  ],
+  "projects": [
+    {
+      "id": "default",
+      "name": "My Project",
+      "color": "#3b82f6",
+      "icon": "📁"
+    }
+  ],
+  "activities": [
+    {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "Test",
+      "from": "backlog",
+      "to": "in_progress",
+      "time": "just now"
+    },
+    {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "Research weekend trip ideas",
+      "from": "backlog",
+      "to": "in_progress",
+      "time": "just now"
+    },
+    {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "Restaurant Ideas",
+      "from": "in_progress",
+      "to": "review",
+      "time": "just now"
+    }
+  ],
+  "lastUpdated": "2026-02-06T03:54:36.529Z"
+}

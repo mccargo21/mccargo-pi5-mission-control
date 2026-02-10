@@ -1,2 +1,8 @@
 # Temporary planning documents
 *.csv
+
+# Sensitive configs
+config/
+*.secrets
+.env.secrets
+credentials/

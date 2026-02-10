@@ -1,0 +1,36 @@
+=== OpenClaw Update Check - Thu Feb  5 05:00:18 EST 2026 ===
+Current version: unknown
+Checking for updates...
+│
+◇  Doctor warnings ────────────────────────────────────────╮
+│                                                          │
+│  - State dir migration skipped: target already exists    │
+│    (/home/mccargo/.openclaw). Remove or merge manually.  │
+│                                                          │
+├──────────────────────────────────────────────────────────╯
+{
+  "status": "ok",
+  "mode": "npm",
+  "root": "/home/mccargo/.npm-global/lib/node_modules/openclaw",
+  "before": {
+    "version": "2026.2.2-3"
+  },
+  "after": {
+    "version": "2026.2.3-1"
+  },
+  "steps": [
+    {
+      "name": "global update",
+      "command": "npm i -g openclaw@latest",
+      "cwd": "/home/mccargo/.npm-global/lib/node_modules/openclaw",
+      "durationMs": 37440,
+      "exitCode": 0,
+      "stdoutTail": "\nadded 5 packages, and changed 695 packages in 37s",
+      "stderrTail": "npm warn deprecated npmlog@6.0.2: This package is no longer supported.\nnpm warn deprecated are-we-there-yet@3.0.1: This package is no longer supported.\nnpm warn deprecated gauge@4.0.4: This package is no longer supported.\nnpm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead\nnpm warn deprecated tar@6.2.1: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\nnpm warn deprecated glob@11.1.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\nnpm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me"
+    }
+  ],
+  "durationMs": 37705
+}
+Version after update: 2026.2.3
+UPDATE DETECTED: unknown → 2026.2.3
+=== Update check complete ===

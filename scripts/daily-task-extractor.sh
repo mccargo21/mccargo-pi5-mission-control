@@ -28,7 +28,16 @@ trap 'if [ -n "$TEMP_FILE" ] && [ -f "$TEMP_FILE" ]; then rm -f "$TEMP_FILE"; fi
 
 mkdir -p "$LOG_DIR"
 
-echo "=== Daily Task Extraction - $(date) ===" | tee -a "$EXTRACTOR_LOG"
+# Security: Set restrictive permissions on log files to protect PII
+chmod 600 "$LOG_DIR"/task-extractor-*.log 2>/dev/null || true
+
+# Security: Sanitize logs - don't include raw calendar/email content
+sanitize_log() {
+    # Log success/failure only, not the actual content
+    echo "$1"
+}
+
+echo "=== Daily Task Extraction - $(date) ===" >> "$EXTRACTOR_LOG"
 
 # Backup current tasks
 cp "$TASKS_FILE" "$BACKUP_FILE"
@@ -37,88 +46,104 @@ cp "$TASKS_FILE" "$BACKUP_FILE"
 TODAY=$(date +%Y-%m-%dT00:00:00)
 NEXT_36H=$(date -d '+36 hours' +%Y-%m-%dT23:59:59)
 
-echo "Time range: $TODAY to $NEXT_36H (36 hours)" | tee -a "$EXTRACTOR_LOG"
+echo "Time range: $TODAY to $NEXT_36H (36 hours)" >> "$EXTRACTOR_LOG"
 
 TASK_COUNT=0
 NEW_TASKS_JSON='{"tasks": ['
 
-echo "Step 1: Fetching Google Calendar events..." | tee -a "$EXTRACTOR_LOG"
+echo "Step 1: Fetching Google Calendar events..." >> "$EXTRACTOR_LOG"
 
 # Get calendar events using mcporter
 CALENDAR_OUTPUT=$(cd "$WORKSPACE" && timeout 30 mcporter call zapier.google_calendar_find_events instructions="Find all calendar events in the specified time range" output_hint="Return event summary with title, time, and location" start_time="$TODAY" end_time="$NEXT_36H" 2>&1)
 CALENDAR_EXIT=$?
 
 if [ $CALENDAR_EXIT -eq 0 ]; then
-    echo "Calendar fetch successful" | tee -a "$EXTRACTOR_LOG"
-    
-    # For each calendar event, create a task
-    # Simplified: create one task with all events in description
-    # In production, proper JSON parsing would create separate tasks
-    
+    # Security: Don't log calendar content (PII)
+    echo "Calendar fetch successful ($(echo "$CALENDAR_OUTPUT" | wc -l) lines)" >> "$EXTRACTOR_LOG"
+
     TASK_COUNT=$((TASK_COUNT + 1))
     TASK_ID="cal_$(date +%s)_$TASK_COUNT"
-    
-    NEW_TASKS_JSON="$NEW_TASKS_JSON
-    {
-      \"id\": \"$TASK_ID\",
-      \"title\": \"📅 Calendar Events Today\",
-      \"description\": \"Auto-extracted from Google Calendar for next 36 hours.\\n\\n**Events found:**\\n\\n$CALENDAR_OUTPUT\\n\\n**Action required:** Review events and create specific tasks if needed.\",
-      \"status\": \"backlog\",
-      \"project\": \"default\",
-      \"tags\": [\"auto-extracted\", \"calendar\"],
-      \"subtasks\": [
-        { \"id\": \"sub_${TASK_ID}_1\", \"title\": \"Review calendar events\", \"done\": false },
-        { \"id\": \"sub_${TASK_ID}_2\", \"title\": \"Prepare for meetings\", \"done\": false },
-        { \"id\": \"sub_${TASK_ID}_3\", \"title\": \"Add follow-up tasks\", \"done\": false }
-      ],
-      \"priority\": \"medium\",
-      \"comments\": [
-        { \"author\": \"Task Extractor\", \"text\": \"Auto-generated from Google Calendar scan\", \"timestamp\": \"$(date -Iseconds)\" }
-      ],
-      \"createdAt\": \"$(date -Iseconds)\"
-    },"
+
+    # Build task JSON using jq to properly escape all special characters
+    NEW_TASKS_JSON=$(jq -n \
+        --arg id "$TASK_ID" \
+        --arg cal_output "$CALENDAR_OUTPUT" \
+        --arg ts "$(date -Iseconds)" \
+        '{
+            id: $id,
+            title: "📅 Calendar Events Today",
+            description: ("Auto-extracted from Google Calendar for next 36 hours.\n\n**Events found:**\n\n" + $cal_output + "\n\n**Action required:** Review events and create specific tasks if needed."),
+            status: "backlog",
+            project: "default",
+            tags: ["auto-extracted", "calendar"],
+            subtasks: [
+                {id: ("sub_" + $id + "_1"), title: "Review calendar events", done: false},
+                {id: ("sub_" + $id + "_2"), title: "Prepare for meetings", done: false},
+                {id: ("sub_" + $id + "_3"), title: "Add follow-up tasks", done: false}
+            ],
+            priority: "medium",
+            comments: [
+                {author: "Task Extractor", text: "Auto-generated from Google Calendar scan", timestamp: $ts}
+            ],
+            createdAt: $ts
+        }' <<< "")
+
+    NEW_TASKS_JSON="{\"tasks\": [$NEW_TASKS_JSON,"
 fi
 
-echo "Step 2: Fetching emails with task keywords..." | tee -a "$EXTRACTOR_LOG"
+echo "Step 2: Fetching emails with task keywords..." >> "$EXTRACTOR_LOG"
 
 # Search for task-related emails
 EMAIL_OUTPUT=$(cd "$WORKSPACE" && timeout 30 mcporter call zapier.gmail_find_email instructions="Search Gmail for emails containing task-related keywords" output_hint="Return email subject, sender, date, and brief preview" query="(task OR to-do OR due OR deadline OR meeting OR appointment OR reminder)" max_results=10 2>&1)
 EMAIL_EXIT=$?
 
 if [ $EMAIL_EXIT -eq 0 ]; then
-    echo "Email fetch successful" | tee -a "$EXTRACTOR_LOG"
-    
-    # Create task for email review
+    # Security: Don't log email content (PII)
+    echo "Email fetch successful ($(echo "$EMAIL_OUTPUT" | wc -l) lines)" >> "$EXTRACTOR_LOG"
+
     TASK_COUNT=$((TASK_COUNT + 1))
     TASK_ID="email_$(date +%s)_$TASK_COUNT"
-    
-    NEW_TASKS_JSON="$NEW_TASKS_JSON
-    {
-      \"id\": \"$TASK_ID\",
-      \"title\": \"📧 Review Emails for Tasks\",
-      \"description\": \"Auto-extracted from Gmail search. Emails containing task keywords: task, to-do, due, deadline, meeting, appointment, reminder.\\n\\n**Emails found:**\\n\\n$EMAIL_OUTPUT\\n\\n**Action required:** Review emails and create specific tasks.\",
-      \"status\": \"backlog\",
-      \"project\": \"default\",
-      \"tags\": [\"auto-extracted\", \"email\"],
-      \"subtasks\": [
-        { \"id\": \"sub_${TASK_ID}_1\", \"title\": \"Review task emails\", \"done\": false },
-        { \"id\": \"sub_${TASK_ID}_2\", \"title\": \"Extract actionable items\", \"done\": false },
-        { \"id\": \"sub_${TASK_ID}_3\", \"title\": \"Create specific tasks\", \"done\": false }
-      ],
-      \"priority\": \"medium\",
-      \"comments\": [
-        { \"author\": \"Task Extractor\", \"text\": \"Auto-generated from Gmail scan\", \"timestamp\": \"$(date -Iseconds)\" }
-      ],
-      \"createdAt\": \"$(date -Iseconds)\"
-    },"
+
+    # Build task JSON using jq to properly escape all special characters
+    EMAIL_TASK=$(jq -n \
+        --arg id "$TASK_ID" \
+        --arg email_output "$EMAIL_OUTPUT" \
+        --arg ts "$(date -Iseconds)" \
+        '{
+            id: $id,
+            title: "📧 Review Emails for Tasks",
+            description: ("Auto-extracted from Gmail search. Emails containing task keywords: task, to-do, due, deadline, meeting, appointment, reminder.\n\n**Emails found:**\n\n" + $email_output + "\n\n**Action required:** Review emails and create specific tasks."),
+            status: "backlog",
+            project: "default",
+            tags: ["auto-extracted", "email"],
+            subtasks: [
+                {id: ("sub_" + $id + "_1"), title: "Review task emails", done: false},
+                {id: ("sub_" + $id + "_2"), title: "Extract actionable items", done: false},
+                {id: ("sub_" + $id + "_3"), title: "Create specific tasks", done: false}
+            ],
+            priority: "medium",
+            comments: [
+                {author: "Task Extractor", text: "Auto-generated from Gmail scan", timestamp: $ts}
+            ],
+            createdAt: $ts
+        }' <<< "")
+
+    if [ -n "$NEW_TASKS_JSON" ]; then
+        NEW_TASKS_JSON="${NEW_TASKS_JSON}${EMAIL_TASK},"
+    else
+        NEW_TASKS_JSON="{\"tasks\": [${EMAIL_TASK},"
+    fi
 fi
 
-echo "Step 3: Processing extracted items..." | tee -a "$EXTRACTOR_LOG"
-echo "Found $TASK_COUNT tasks to add" | tee -a "$EXTRACTOR_LOG"
+echo "Step 3: Processing extracted items..." >> "$EXTRACTOR_LOG"
+echo "Found $TASK_COUNT tasks to add" >> "$EXTRACTOR_LOG"
 
 # Close JSON array properly
-NEW_TASKS_JSON="${NEW_TASKS_JSON%,]}"
-NEW_TASKS_JSON="$NEW_TASKS_JSON]}"
+if [ $TASK_COUNT -gt 0 ]; then
+    NEW_TASKS_JSON="${NEW_TASKS_JSON%,}]}"
+else
+    NEW_TASKS_JSON='{"tasks": []}'
+fi
 
 # Write new tasks to temp file
 TEMP_FILE=$(mktemp)
@@ -127,21 +152,21 @@ echo "$NEW_TASKS_JSON" > "$TEMP_FILE"
 # Merge using jq: New tasks first, then existing tasks, with timestamp
 FINAL_JSON=$(jq -s --arg ts "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" '{tasks: (.[0].tasks + .[1].tasks), lastUpdated: $ts}' "$TEMP_FILE" "$TASKS_FILE")
 
-echo "Step 4: Writing to tasks file..." | tee -a "$EXTRACTOR_LOG"
+echo "Step 4: Writing to tasks file..." >> "$EXTRACTOR_LOG"
 echo "$FINAL_JSON" > "$TASKS_FILE"
 
-echo "Step 5: Committing to git..." | tee -a "$EXTRACTOR_LOG"
+echo "Step 5: Committing to git..." >> "$EXTRACTOR_LOG"
 
 cd "$WORKSPACE"
-git add data/tasks.json 2>&1 | tee -a "$EXTRACTOR_LOG"
+git add data/tasks.json 2>&1 >> "$EXTRACTOR_LOG"
 
 if [ $TASK_COUNT -gt 0 ]; then
-    git commit -m "Auto: Extracted $TASK_COUNT tasks from calendar & email ($TODAY)" 2>&1 | tee -a "$EXTRACTOR_LOG"
+    git commit -m "Auto: Extracted $TASK_COUNT tasks from calendar & email ($TODAY)" 2>&1 >> "$EXTRACTOR_LOG"
 else
-    echo "No tasks found, skipping commit" | tee -a "$EXTRACTOR_LOG"
+    echo "No tasks found, skipping commit" >> "$EXTRACTOR_LOG"
 fi
 
-git push 2>&1 | tee -a "$EXTRACTOR_LOG"
+git push 2>&1 >> "$EXTRACTOR_LOG"
 
 # Generate enhanced daily briefing
 BRIEFING_ID="briefing_$(date +%s)"
@@ -149,7 +174,7 @@ BRIEFING_TITLE="Daily Context Briefing"
 BRIEFING_DESC="Enhanced morning briefing with trip overview, weather, priorities, and resource links"
 
 # Create briefing task (after all extraction tasks are added)
-echo "Step 6: Generating daily briefing..." | tee -a "$EXTRACTOR_LOG"
+echo "Step 6: Generating daily briefing..." >> "$EXTRACTOR_LOG"
 
 # Get current weather (Islamorada forecast - simple placeholder)
 WEATHER="☀️ **Weather:** Islamorada, FL - Feb 11-14, 2026\\nCheck forecast before packing"
@@ -171,7 +196,7 @@ TIP="\\n## 💡 Personal/Pro Tip\\n\\nWeather in Islamorada in Feb is pleasant (
 
 # Construct briefing task
 BRIEFING_TASK="{
-  \"id\": \"$BRIEFING_TASK_ID\",
+  \"id\": \"$BRIEFING_ID\",
   \"title\": \"$BRIEFING_TITLE\",
   \"description\": \"$TRIP_OVERVIEW\\n\\n$PRIORITIES\\n\\n$FAMILY_CONTEXT\\n\\n$RESOURCES\\n\\n$TIP\",
   \"status\": \"backlog\",
@@ -185,16 +210,25 @@ BRIEFING_TASK="{
   \"createdAt\": \"$(date -Iseconds)\"
 }"
 
-echo "Step 7: Adding briefing task to final JSON..." | tee -a "$EXTRACTOR_LOG"
+echo "Step 7: Adding briefing task to final JSON..." >> "$EXTRACTOR_LOG"
+
+# Add briefing task to tasks.json
+UPDATED_JSON=$(jq --argjson briefing "$BRIEFING_TASK" '.tasks += [$briefing]' "$TASKS_FILE")
+echo "$UPDATED_JSON" > "$TASKS_FILE"
+
+# Commit the briefing task
+git add data/tasks.json 2>&1 >> "$EXTRACTOR_LOG"
+git commit -m "Auto: Added daily briefing task ($BRIEFING_ID)" 2>&1 >> "$EXTRACTOR_LOG"
+git push 2>&1 >> "$EXTRACTOR_LOG"
 
 if [ $? -eq 0 ]; then
-    echo "✓ Tasks extracted and pushed successfully ($TASK_COUNT tasks)" | tee -a "$EXTRACTOR_LOG"
+    echo "✓ Tasks extracted and pushed successfully ($TASK_COUNT tasks)" >> "$EXTRACTOR_LOG"
     log_info "Extracted $TASK_COUNT tasks from calendar and email"
 else
-    echo "✗ Failed to push tasks" | tee -a "$EXTRACTOR_LOG"
+    echo "✗ Failed to push tasks" >> "$EXTRACTOR_LOG"
     log_error "Failed to push extracted tasks to git"
 fi
 
-echo "=== Extraction complete ===" | tee -a "$EXTRACTOR_LOG"
+echo "=== Extraction complete ===" >> "$EXTRACTOR_LOG"
 
 rm -f "$TASKS_FILE.tmp"

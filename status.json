@@ -1,0 +1,480 @@
+│
+◇  Doctor warnings ────────────────────────────────────────╮
+│                                                          │
+│  - State dir migration skipped: target already exists    │
+│    (/home/mccargo/.openclaw). Remove or merge manually.  │
+│                                                          │
+├──────────────────────────────────────────────────────────╯
+{
+  "heartbeat": {
+    "defaultAgentId": "main",
+    "agents": [
+      {
+        "agentId": "main",
+        "enabled": true,
+        "every": "30m",
+        "everyMs": 1800000
+      }
+    ]
+  },
+  "channelSummary": [
+    "Telegram: configured",
+    "  - default (token:config)"
+  ],
+  "queuedSystemEvents": [],
+  "sessions": {
+    "paths": [
+      "/home/mccargo/.openclaw/agents/main/sessions/sessions.json"
+    ],
+    "count": 4,
+    "defaults": {
+      "model": "gemini-3-flash",
+      "contextTokens": 1048576
+    },
+    "recent": [
+      {
+        "agentId": "main",
+        "key": "agent:main:main",
+        "kind": "direct",
+        "sessionId": "a68484fa-0037-498e-a7ac-5eefa2a79963",
+        "updatedAt": 1770148529185,
+        "age": 330440,
+        "systemSent": true,
+        "abortedLastRun": false,
+        "inputTokens": 6465,
+        "outputTokens": 362,
+        "totalTokens": 22807,
+        "remainingTokens": 1025769,
+        "percentUsed": 2,
+        "model": "gemini-3-flash",
+        "contextTokens": 1048576,
+        "flags": [
+          "system",
+          "id:a68484fa-0037-498e-a7ac-5eefa2a79963"
+        ]
+      },
+      {
+        "agentId": "main",
+        "key": "agent:main:cron:cf6e6374-d953-4455-a38c-876842263211",
+        "kind": "direct",
+        "sessionId": "95bd57e7-f725-4042-840e-bf15defff91c",
+        "updatedAt": 1770123600157,
+        "age": 25259468,
+        "systemSent": true,
+        "totalTokens": 0,
+        "remainingTokens": 200000,
+        "percentUsed": 0,
+        "model": "google/gemini-3-flash-preview",
+        "contextTokens": 200000,
+        "flags": [
+          "system",
+          "id:95bd57e7-f725-4042-840e-bf15defff91c"
+        ]
+      },
+      {
+        "agentId": "main",
+        "key": "agent:main:cron:16098ecb-7a11-48a2-ad12-27d92634e628",
+        "kind": "direct",
+        "sessionId": "bacf038a-5529-440f-b56a-ed8938da2100",
+        "updatedAt": 1770120000184,
+        "age": 28859441,
+        "systemSent": true,
+        "totalTokens": 0,
+        "remainingTokens": 200000,
+        "percentUsed": 0,
+        "model": "google/gemini-3-flash-preview",
+        "contextTokens": 200000,
+        "flags": [
+          "system",
+          "id:bacf038a-5529-440f-b56a-ed8938da2100"
+        ]
+      },
+      {
+        "agentId": "main",
+        "key": "agent:main:cron:51e9b42e-9d90-4433-a9aa-133b27925442",
+        "kind": "direct",
+        "sessionId": "a8fee731-4ca7-4154-a4cc-8cc37ae03cd7",
+        "updatedAt": 1770112800199,
+        "age": 36059426,
+        "systemSent": true,
+        "totalTokens": 0,
+        "remainingTokens": 200000,
+        "percentUsed": 0,
+        "model": "google/gemini-3-flash-preview",
+        "contextTokens": 200000,
+        "flags": [
+          "system",
+          "id:a8fee731-4ca7-4154-a4cc-8cc37ae03cd7"
+        ]
+      }
+    ],
+    "byAgent": [
+      {
+        "agentId": "main",
+        "path": "/home/mccargo/.openclaw/agents/main/sessions/sessions.json",
+        "count": 4,
+        "recent": [
+          {
+            "agentId": "main",
+            "key": "agent:main:main",
+            "kind": "direct",
+            "sessionId": "a68484fa-0037-498e-a7ac-5eefa2a79963",
+            "updatedAt": 1770148529185,
+            "age": 330440,
+            "systemSent": true,
+            "abortedLastRun": false,
+            "inputTokens": 6465,
+            "outputTokens": 362,
+            "totalTokens": 22807,
+            "remainingTokens": 1025769,
+            "percentUsed": 2,
+            "model": "gemini-3-flash",
+            "contextTokens": 1048576,
+            "flags": [
+              "system",
+              "id:a68484fa-0037-498e-a7ac-5eefa2a79963"
+            ]
+          },
+          {
+            "agentId": "main",
+            "key": "agent:main:cron:cf6e6374-d953-4455-a38c-876842263211",
+            "kind": "direct",
+            "sessionId": "95bd57e7-f725-4042-840e-bf15defff91c",
+            "updatedAt": 1770123600157,
+            "age": 25259468,
+            "systemSent": true,
+            "totalTokens": 0,
+            "remainingTokens": 200000,
+            "percentUsed": 0,
+            "model": "google/gemini-3-flash-preview",
+            "contextTokens": 200000,
+            "flags": [
+              "system",
+              "id:95bd57e7-f725-4042-840e-bf15defff91c"
+            ]
+          },
+          {
+            "agentId": "main",
+            "key": "agent:main:cron:16098ecb-7a11-48a2-ad12-27d92634e628",
+            "kind": "direct",
+            "sessionId": "bacf038a-5529-440f-b56a-ed8938da2100",
+            "updatedAt": 1770120000184,
+            "age": 28859441,
+            "systemSent": true,
+            "totalTokens": 0,
+            "remainingTokens": 200000,
+            "percentUsed": 0,
+            "model": "google/gemini-3-flash-preview",
+            "contextTokens": 200000,
+            "flags": [
+              "system",
+              "id:bacf038a-5529-440f-b56a-ed8938da2100"
+            ]
+          },
+          {
+            "agentId": "main",
+            "key": "agent:main:cron:51e9b42e-9d90-4433-a9aa-133b27925442",
+            "kind": "direct",
+            "sessionId": "a8fee731-4ca7-4154-a4cc-8cc37ae03cd7",
+            "updatedAt": 1770112800199,
+            "age": 36059426,
+            "systemSent": true,
+            "totalTokens": 0,
+            "remainingTokens": 200000,
+            "percentUsed": 0,
+            "model": "google/gemini-3-flash-preview",
+            "contextTokens": 200000,
+            "flags": [
+              "system",
+              "id:a8fee731-4ca7-4154-a4cc-8cc37ae03cd7"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "os": {
+    "platform": "linux",
+    "arch": "arm64",
+    "release": "6.8.0-1045-raspi",
+    "label": "linux 6.8.0-1045-raspi (arm64)"
+  },
+  "update": {
+    "root": "/home/mccargo/.npm-global/lib/node_modules/openclaw",
+    "installKind": "package",
+    "packageManager": "pnpm",
+    "deps": {
+      "manager": "pnpm",
+      "status": "unknown",
+      "lockfilePath": "/home/mccargo/.npm-global/lib/node_modules/openclaw/pnpm-lock.yaml",
+      "markerPath": "/home/mccargo/.npm-global/lib/node_modules/openclaw/node_modules/.modules.yaml",
+      "reason": "lockfile missing"
+    },
+    "registry": {
+      "latestVersion": "2026.2.1"
+    }
+  },
+  "updateChannel": "stable",
+  "updateChannelSource": "default",
+  "memory": {
+    "agentId": "main",
+    "files": 2,
+    "chunks": 13,
+    "dirty": true,
+    "workspaceDir": "/home/mccargo/.openclaw/workspace",
+    "dbPath": "/home/mccargo/.openclaw/memory/main.sqlite",
+    "provider": "gemini",
+    "model": "gemini-embedding-001",
+    "requestedProvider": "auto",
+    "sources": [
+      "memory"
+    ],
+    "extraPaths": [],
+    "sourceCounts": [
+      {
+        "source": "memory",
+        "files": 2,
+        "chunks": 13
+      }
+    ],
+    "cache": {
+      "enabled": true,
+      "entries": 13
+    },
+    "fts": {
+      "enabled": true,
+      "available": true
+    },
+    "vector": {
+      "enabled": true,
+      "available": true,
+      "extensionPath": "/home/mccargo/.npm-global/lib/node_modules/openclaw/node_modules/sqlite-vec-linux-arm64/vec0.so",
+      "dims": 3072
+    },
+    "batch": {
+      "enabled": true,
+      "failures": 0,
+      "limit": 2,
+      "wait": true,
+      "concurrency": 2,
+      "pollIntervalMs": 2000,
+      "timeoutMs": 3600000
+    }
+  },
+  "memoryPlugin": {
+    "enabled": true,
+    "slot": "memory-core"
+  },
+  "gateway": {
+    "mode": "local",
+    "url": "ws://127.0.0.1:18789",
+    "urlSource": "local loopback",
+    "misconfigured": false,
+    "reachable": true,
+    "connectLatencyMs": 50,
+    "self": {
+      "host": "mccargo-pi5",
+      "ip": "192.168.1.155",
+      "version": "unknown",
+      "platform": "linux 6.8.0-1045-raspi"
+    },
+    "error": null
+  },
+  "gatewayService": {
+    "label": "systemd",
+    "installed": true,
+    "loadedText": "enabled",
+    "runtimeShort": "running (pid 352704, state active)"
+  },
+  "nodeService": {
+    "label": "systemd",
+    "installed": false,
+    "loadedText": "disabled",
+    "runtimeShort": "stopped (state inactive)"
+  },
+  "agents": {
+    "defaultId": "main",
+    "agents": [
+      {
+        "id": "main",
+        "workspaceDir": "/home/mccargo/.openclaw/workspace",
+        "bootstrapPending": false,
+        "sessionsPath": "/home/mccargo/.openclaw/agents/main/sessions/sessions.json",
+        "sessionsCount": 4,
+        "lastUpdatedAt": 1770148529185,
+        "lastActiveAgeMs": 330163
+      }
+    ],
+    "totalSessions": 4,
+    "bootstrapPendingCount": 0
+  },
+  "securityAudit": {
+    "ts": 1770148859643,
+    "summary": {
+      "critical": 1,
+      "warn": 1,
+      "info": 1
+    },
+    "findings": [
+      {
+        "checkId": "summary.attack_surface",
+        "severity": "info",
+        "title": "Attack surface summary",
+        "detail": "groups: open=0, allowlist=1\ntools.elevated: enabled\nhooks: disabled\nbrowser control: enabled"
+      },
+      {
+        "checkId": "gateway.trusted_proxies_missing",
+        "severity": "warn",
+        "title": "Reverse proxy headers are not trusted",
+        "detail": "gateway.bind is loopback and gateway.trustedProxies is empty. If you expose the Control UI through a reverse proxy, configure trusted proxies so local-client checks cannot be spoofed.",
+        "remediation": "Set gateway.trustedProxies to your proxy IPs or keep the Control UI local-only."
+      },
+      {
+        "checkId": "fs.credentials_dir.perms_writable",
+        "severity": "critical",
+        "title": "Credentials dir is writable by others",
+        "detail": "/home/mccargo/.openclaw/credentials mode=775; another user could drop/modify credential files.",
+        "remediation": "chmod 700 /home/mccargo/.openclaw/credentials"
+      }
+    ]
+  },
+  "health": {
+    "ok": true,
+    "ts": 1770148860175,
+    "durationMs": 650,
+    "channels": {
+      "telegram": {
+        "configured": true,
+        "tokenSource": "none",
+        "running": false,
+        "mode": null,
+        "lastStartAt": null,
+        "lastStopAt": null,
+        "lastError": null,
+        "probe": {
+          "ok": true,
+          "status": null,
+          "error": null,
+          "elapsedMs": 650,
+          "bot": {
+            "id": 8335620982,
+            "username": "Molty_adam2121_bot",
+            "canJoinGroups": true,
+            "canReadAllGroupMessages": true,
+            "supportsInlineQueries": false
+          },
+          "webhook": {
+            "url": "",
+            "hasCustomCert": false
+          }
+        },
+        "lastProbeAt": 1770148860175,
+        "accountId": "default",
+        "accounts": {
+          "default": {
+            "configured": true,
+            "tokenSource": "none",
+            "running": false,
+            "mode": null,
+            "lastStartAt": null,
+            "lastStopAt": null,
+            "lastError": null,
+            "probe": {
+              "ok": true,
+              "status": null,
+              "error": null,
+              "elapsedMs": 650,
+              "bot": {
+                "id": 8335620982,
+                "username": "Molty_adam2121_bot",
+                "canJoinGroups": true,
+                "canReadAllGroupMessages": true,
+                "supportsInlineQueries": false
+              },
+              "webhook": {
+                "url": "",
+                "hasCustomCert": false
+              }
+            },
+            "lastProbeAt": 1770148860175,
+            "accountId": "default"
+          }
+        }
+      }
+    },
+    "channelOrder": [
+      "telegram"
+    ],
+    "channelLabels": {
+      "telegram": "Telegram"
+    },
+    "heartbeatSeconds": 1800,
+    "defaultAgentId": "main",
+    "agents": [
+      {
+        "agentId": "main",
+        "isDefault": true,
+        "heartbeat": {
+          "enabled": true,
+          "every": "30m",
+          "everyMs": 1800000,
+          "prompt": "Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.",
+          "target": "last",
+          "ackMaxChars": 300
+        },
+        "sessions": {
+          "path": "/home/mccargo/.openclaw/agents/main/sessions/sessions.json",
+          "count": 4,
+          "recent": [
+            {
+              "key": "agent:main:main",
+              "updatedAt": 1770148529185,
+              "age": 330340
+            },
+            {
+              "key": "agent:main:cron:cf6e6374-d953-4455-a38c-876842263211",
+              "updatedAt": 1770123600157,
+              "age": 25259368
+            },
+            {
+              "key": "agent:main:cron:16098ecb-7a11-48a2-ad12-27d92634e628",
+              "updatedAt": 1770120000184,
+              "age": 28859341
+            },
+            {
+              "key": "agent:main:cron:51e9b42e-9d90-4433-a9aa-133b27925442",
+              "updatedAt": 1770112800199,
+              "age": 36059326
+            }
+          ]
+        }
+      }
+    ],
+    "sessions": {
+      "path": "/home/mccargo/.openclaw/agents/main/sessions/sessions.json",
+      "count": 4,
+      "recent": [
+        {
+          "key": "agent:main:main",
+          "updatedAt": 1770148529185,
+          "age": 330340
+        },
+        {
+          "key": "agent:main:cron:cf6e6374-d953-4455-a38c-876842263211",
+          "updatedAt": 1770123600157,
+          "age": 25259368
+        },
+        {
+          "key": "agent:main:cron:16098ecb-7a11-48a2-ad12-27d92634e628",
+          "updatedAt": 1770120000184,
+          "age": 28859341
+        },
+        {
+          "key": "agent:main:cron:51e9b42e-9d90-4433-a9aa-133b27925442",
+          "updatedAt": 1770112800199,
+          "age": 36059326
+        }
+      ]
+    }
+  }
+}
