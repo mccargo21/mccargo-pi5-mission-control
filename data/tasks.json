@@ -269,6 +269,28 @@
       "status": "done",
       "sortOrder": 0,
       "completedAt": "2026-02-07T11:08:00Z"
+    },
+    {
+      "id": "briefing_1770730609",
+      "title": "Daily Context Briefing",
+      "description": "## 🌴 Trip Overview\n\n**Traveling to:** Islamorada, FL (Feb 11-14)\n**Duration:** 3 nights\n**Travelers:** Adam, William (9), Joseph (5)\n**Accommodation:** Amara Cay Resort\n**Transportation:** Frontier Airlines + Flexways rental\n\n✅ All bookings confirmed!\n\n\n## 🎯 Top 3 Priorities\n\nReviewing calendar for today's priorities...\n\n\n## 👨 Family Context\n\nTraveling with kids - plan age-appropriate activities for William (9) and Joseph (5).\n\n\n## 📋 Quick Resources\n\n- Flight: UH51YJ (Frontier)\n- Hotel: 77821SG427107 (Amara Cay)\n- Car: NM1TUD (Flexways)\n- Documents folder link\n\n\n## 💡 Personal/Pro Tip\n\nWeather in Islamorada in Feb is pleasant (65-72°F). Pack layers!",
+      "status": "backlog",
+      "project": "default",
+      "tags": [
+        "daily-briefing",
+        "context",
+        "weather"
+      ],
+      "subtasks": [],
+      "priority": "high",
+      "comments": [
+        {
+          "author": "Task Extractor",
+          "text": "Auto-generated daily briefing with trip context",
+          "timestamp": "2026-02-10T08:36:49-05:00"
+        }
+      ],
+      "createdAt": "2026-02-10T08:36:49-05:00"
     }
   ],
   "lastUpdated": "2026-02-10T13:36:48Z"
