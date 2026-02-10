@@ -4,7 +4,7 @@
       "id": "cal_1770730604_1",
       "title": "📅 Calendar Events Today",
       "description": "Auto-extracted from Google Calendar for next 36 hours.\n\n**Events found:**\n\n{\n  \"isError\": true,\n  \"error\": \"[\\n  \\\"insufficient tasks on account\\\"\\n]\",\n  \"feedbackUrl\": \"https://mcp.zapier.com/mcp/servers/f6cc52e2-019a-48b0-9478-de91a20ecaee/history/executions/6e6dc2d3-26ed-46a6-9967-89fbf3139ad3\",\n  \"isPreview\": false\n}\n\n**Action required:** Review events and create specific tasks if needed.",
-      "status": "backlog",
+      "status": "in_progress",
       "project": "default",
       "tags": [
         "auto-extracted",
@@ -35,7 +35,8 @@
           "timestamp": "2026-02-10T08:36:44-05:00"
         }
       ],
-      "createdAt": "2026-02-10T08:36:44-05:00"
+      "createdAt": "2026-02-10T08:36:44-05:00",
+      "sortOrder": 0
     },
     {
       "id": "email_1770730608_2",
@@ -293,5 +294,15 @@
       "createdAt": "2026-02-10T08:36:49-05:00"
     }
   ],
-  "lastUpdated": "2026-02-10T16:49:22.118Z"
+  "lastUpdated": "2026-02-10T16:49:29.872Z",
+  "activities": [
+    {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "📅 Calendar Events Today",
+      "from": "backlog",
+      "to": "in_progress",
+      "time": "just now"
+    }
+  ]
 }
