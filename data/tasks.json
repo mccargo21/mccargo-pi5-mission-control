@@ -1,6 +1,80 @@
 {
   "tasks": [
     {
+      "id": "cal_1770730604_1",
+      "title": "📅 Calendar Events Today",
+      "description": "Auto-extracted from Google Calendar for next 36 hours.\n\n**Events found:**\n\n{\n  \"isError\": true,\n  \"error\": \"[\\n  \\\"insufficient tasks on account\\\"\\n]\",\n  \"feedbackUrl\": \"https://mcp.zapier.com/mcp/servers/f6cc52e2-019a-48b0-9478-de91a20ecaee/history/executions/6e6dc2d3-26ed-46a6-9967-89fbf3139ad3\",\n  \"isPreview\": false\n}\n\n**Action required:** Review events and create specific tasks if needed.",
+      "status": "backlog",
+      "project": "default",
+      "tags": [
+        "auto-extracted",
+        "calendar"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_cal_1770730604_1_1",
+          "title": "Review calendar events",
+          "done": false
+        },
+        {
+          "id": "sub_cal_1770730604_1_2",
+          "title": "Prepare for meetings",
+          "done": false
+        },
+        {
+          "id": "sub_cal_1770730604_1_3",
+          "title": "Add follow-up tasks",
+          "done": false
+        }
+      ],
+      "priority": "medium",
+      "comments": [
+        {
+          "author": "Task Extractor",
+          "text": "Auto-generated from Google Calendar scan",
+          "timestamp": "2026-02-10T08:36:44-05:00"
+        }
+      ],
+      "createdAt": "2026-02-10T08:36:44-05:00"
+    },
+    {
+      "id": "email_1770730608_2",
+      "title": "📧 Review Emails for Tasks",
+      "description": "Auto-extracted from Gmail search. Emails containing task keywords: task, to-do, due, deadline, meeting, appointment, reminder.\n\n**Emails found:**\n\n{\n  \"isError\": true,\n  \"error\": \"[\\n  \\\"insufficient tasks on account\\\"\\n]\",\n  \"feedbackUrl\": \"https://mcp.zapier.com/mcp/servers/f6cc52e2-019a-48b0-9478-de91a20ecaee/history/executions/3a4bd8bf-1020-47ce-9df7-5dac98d7e676\",\n  \"isPreview\": false\n}\n\n**Action required:** Review emails and create specific tasks.",
+      "status": "backlog",
+      "project": "default",
+      "tags": [
+        "auto-extracted",
+        "email"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_email_1770730608_2_1",
+          "title": "Review task emails",
+          "done": false
+        },
+        {
+          "id": "sub_email_1770730608_2_2",
+          "title": "Extract actionable items",
+          "done": false
+        },
+        {
+          "id": "sub_email_1770730608_2_3",
+          "title": "Create specific tasks",
+          "done": false
+        }
+      ],
+      "priority": "medium",
+      "comments": [
+        {
+          "author": "Task Extractor",
+          "text": "Auto-generated from Gmail scan",
+          "timestamp": "2026-02-10T08:36:48-05:00"
+        }
+      ],
+      "createdAt": "2026-02-10T08:36:48-05:00"
+    },
+    {
       "id": "cal_1770730561_1",
       "title": "📅 Calendar Events Today",
       "description": "Auto-extracted from Google Calendar for next 36 hours.\n\n**Events found:**\n\n{\n  \"results\": [],\n  \"feedbackUrl\": \"https://mcp.zapier.com/mcp/servers/f6cc52e2-019a-48b0-9478-de91a20ecaee/history/executions/7bdcc585-436f-4d80-bbf0-0800b2b83c6c\",\n  \"execution\": {\n    \"id\": \"7bdcc585-436f-4d80-bbf0-0800b2b83c6c\",\n    \"actionId\": \"113ff879-30c2-44fc-af81-b04f3ab6d1dc\",\n    \"mcpServerId\": \"f6cc52e2-019a-48b0-9478-de91a20ecaee\",\n    \"toolName\": \"google_calendar_find_events\",\n    \"actionDisplayName\": \"Google Calendar: Find Events\",\n    \"actionSelectedApi\": \"GoogleCalendarCLIAPI\",\n    \"instructions\": \"Find all calendar events in the specified time range\",\n    \"params\": {\n      \"end_time\": \"2026-02-11T23:59:59\",\n      \"start_time\": \"2026-02-10T00:00:00\",\n      \"instructions\": \"Find all calendar events in the specified time range\"\n    },\n    \"resolvedParams\": {\n      \"end_time\": {\n        \"name\": \"End Time After\",\n        \"label\": null,\n        \"value\": \"2026-02-11T23:59:59\",\n        \"reason\": \"top-level-hint\",\n        \"status\": \"locked\"\n      },\n      \"calendarid\": {\n        \"name\": \"Calendar\",\n        \"label\": \"mccargo@gmail.com\",\n        \"value\": \"mccargo@gmail.com\",\n        \"reason\": \"llm-guess\",\n        \"status\": \"guessed\"\n      },\n      \"start_time\": {\n        \"name\": \"Start Time Before\",\n        \"label\": null,\n        \"value\": \"2026-02-10T00:00:00\",\n        \"reason\": \"top-level-hint\",\n        \"status\": \"locked\"\n      }\n    },\n    \"status\": \"SUCCESS\",\n    \"createdDT\": \"2026-02-10T13:36:01.331Z\",\n    \"invocationId\": \"011a162a-9511-4966-914e-d0a21e0b2862\",\n    \"moderationResult\": null\n  },\n  \"isPreview\": false\n}\n\n**Action required:** Review events and create specific tasks if needed.",
@@ -197,5 +271,5 @@
       "completedAt": "2026-02-07T11:08:00Z"
     }
   ],
-  "lastUpdated": "2026-02-10T13:36:09Z"
+  "lastUpdated": "2026-02-10T13:36:48Z"
 }
