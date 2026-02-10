@@ -21,14 +21,24 @@ Usage:
 
 import sys
 import json
+import os
 from pathlib import Path
 from datetime import datetime, timezone
 
-# Add KG scripts to path for shared DB access
+# Add KG scripts and lib to path
 KG_SCRIPTS = Path(__file__).parent.parent.parent / "knowledge-graph" / "scripts"
+LIB_SCRIPTS = Path(__file__).parent.parent.parent.parent / "scripts" / "lib"
 sys.path.insert(0, str(KG_SCRIPTS))
+sys.path.insert(0, str(LIB_SCRIPTS))
 
-from kg_lib import get_cursor, log_event, utcnow  # noqa: E402
+from kg_lib import get_cursor, get_pooled_cursor, utcnow  # noqa: E402
+from structured_logging import get_logger  # noqa: E402
+from metrics import get_collector, record_nudge_generated  # noqa: E402
+
+# Initialize structured logging and metrics
+COMPONENT = "proactive-intel"
+logger = get_logger(COMPONENT)
+metrics = get_collector(COMPONENT)
 
 # ─── Config ──────────────────────────────────────────────────────────────────
 
@@ -96,18 +106,21 @@ def check_followups(cur, config):
     threshold = config["stale_thresholds_days"]["person"]
     min_strength = config["min_strength_for_followup"]
 
-    rows = cur.execute("""
-        SELECT e.id, e.name, e.notes, e.last_mentioned, e.mention_count,
-               MAX(r.strength) AS max_strength
-        FROM kg_entities e
-        LEFT JOIN kg_relations r ON (r.source_id = e.id OR r.target_id = e.id)
-        WHERE e.type = 'person'
-          AND e.name != 'Adam McCargo'
-          AND e.last_mentioned < datetime('now', ?)
-        GROUP BY e.id
-        HAVING max_strength >= ? OR max_strength IS NULL
-        ORDER BY max_strength DESC, e.last_mentioned ASC
-    """, (f"-{threshold} days", min_strength)).fetchall()
+    with logger.timed("check_followups_query", "Querying stale contacts"):
+        rows = cur.execute("""
+            SELECT e.id, e.name, e.notes, e.last_mentioned, e.mention_count,
+                   MAX(r.strength) AS max_strength
+            FROM kg_entities e
+            LEFT JOIN kg_relations r ON (r.source_id = e.id OR r.target_id = e.id)
+            WHERE e.type = 'person'
+              AND e.name != 'Adam McCargo'
+              AND e.last_mentioned < datetime('now', ?)
+            GROUP BY e.id
+            HAVING max_strength >= ? OR max_strength IS NULL
+            ORDER BY max_strength DESC, e.last_mentioned ASC
+        """, (f"-{threshold} days", min_strength)).fetchall()
+
+    metrics.gauge("stale_contacts_found", len(rows))
 
     nudges = []
     for r in rows:
@@ -122,6 +135,14 @@ def check_followups(cur, config):
             "strength": r["max_strength"] or 0,
             "days_stale": days_ago,
         })
+
+    # Record metrics for nudges generated
+    for nudge in nudges:
+        record_nudge_generated(nudge["type"], nudge["priority"])
+
+    logger.info("followups_checked", f"Found {len(nudges)} follow-up nudges",
+                data={"count": len(nudges), "threshold_days": threshold})
+
     return nudges
 
 
@@ -131,11 +152,14 @@ def check_travel(cur, config):
     alert_days = config["travel_alert_days"]
     max_days = max(alert_days)
 
-    rows = cur.execute("""
-        SELECT e.id, e.name, e.notes, e.metadata
-        FROM kg_entities e
-        WHERE e.type = 'event'
-    """).fetchall()
+    with logger.timed("check_travel_query", "Querying upcoming events"):
+        rows = cur.execute("""
+            SELECT e.id, e.name, e.notes, e.metadata
+            FROM kg_entities e
+            WHERE e.type = 'event'
+        """).fetchall()
+
+    metrics.gauge("upcoming_events_checked", len(rows))
 
     today = datetime.now(timezone.utc).date()
 
@@ -145,6 +169,7 @@ def check_travel(cur, config):
             try:
                 meta = json.loads(meta)
             except (json.JSONDecodeError, TypeError):
+                logger.debug("metadata_parse_error", f"Failed to parse metadata for {r['name']}")
                 continue
 
         start_str = meta.get("start_date")
@@ -154,6 +179,7 @@ def check_travel(cur, config):
         try:
             start_date = datetime.strptime(start_str, "%Y-%m-%d").date()
         except ValueError:
+            logger.debug("date_parse_error", f"Invalid date format: {start_str}")
             continue
 
         days_until = (start_date - today).days
@@ -178,6 +204,15 @@ def check_travel(cur, config):
                         "metadata": meta,
                     })
                     break
+
+    # Record metrics
+    for nudge in nudges:
+        record_nudge_generated(nudge["type"], nudge["priority"])
+        metrics.gauge("travel_days_until", nudge["days_until"], tags={"event": nudge["entity_name"]})
+
+    logger.info("travel_checked", f"Found {len(nudges)} travel prep nudges",
+                data={"count": len(nudges), "max_days": max_days})
+
     return nudges
 
 
@@ -462,21 +497,35 @@ def safe_json_loads(stream):
 
 
 def main():
+    logger.info("nudge_engine_started", "Processing nudge engine command")
+    metrics.increment("engine_runs")
+
     try:
         input_data = safe_json_loads(sys.stdin)
     except ValueError as e:
-        log_event("error", f"Payload size error: {e}", "pi-nudge-engine")
+        logger.error("payload_size_error", str(e))
         print(json.dumps({"error": "Payload too large", "success": False}))
+        metrics.increment("errors", tags={"type": "payload_too_large"})
         return
     except json.JSONDecodeError:
-        log_event("error", "Invalid JSON input", "pi-nudge-engine")
+        logger.error("invalid_json_input", "Failed to parse JSON input")
         print(json.dumps({"error": "Invalid JSON input", "success": False}))
+        metrics.increment("errors", tags={"type": "invalid_json"})
         return
 
     command = input_data.get("command", "")
-    config = load_config()
 
-    log_event("info", f"Nudge engine: {command}", "pi-nudge-engine")
+    logger.info("command_received", f"Processing command: {command}", data={"command": command})
+
+    # Validate config using new validator if available
+    try:
+        from config_validation import validate_nudge_rules
+        config = validate_nudge_rules(CONFIG_FILE)
+        config = config.to_dict()
+        logger.debug("config_validated", "Configuration validated successfully")
+    except Exception as e:
+        logger.warn("config_validation_fallback", f"Using default config: {e}")
+        config = load_config()
 
     try:
         with get_cursor() as cur:

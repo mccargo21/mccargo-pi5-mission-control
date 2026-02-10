@@ -1,0 +1,5 @@
+{"timestamp": "2026-02-10T15:13:15.283061+00:00", "component": "proactive-intel", "metric": "engine_runs", "type": "counter", "value": 1, "tags": {}}
+{"timestamp": "2026-02-10T15:13:15.287640+00:00", "component": "proactive-intel", "metric": "stale_contacts_found", "type": "gauge", "value": 0, "tags": {}}
+{"timestamp": "2026-02-10T15:13:15.288002+00:00", "component": "proactive-intel", "metric": "upcoming_events_checked", "type": "gauge", "value": 2, "tags": {}}
+{"timestamp": "2026-02-10T15:13:15.294231+00:00", "component": "proactive-intel", "metric": "nudges_generated", "type": "counter", "value": 1, "tags": {"type": "travel_prep", "priority": "10"}}
+{"timestamp": "2026-02-10T15:13:15.294363+00:00", "component": "proactive-intel", "metric": "travel_days_until", "type": "gauge", "value": 2, "tags": {"event": "Winter Break Trip Feb 2026"}}

@@ -234,3 +234,10 @@
 {"ts": "2026-02-10T15:01:20Z", "level": "info", "script": "kg-bridge", "command": "get", "msg": "Executing command"}
 {"ts": "2026-02-10T15:01:20Z", "level": "info", "script": "kg-bridge", "command": "delete_entity", "msg": "Executing command"}
 {"ts": "2026-02-10T15:01:20Z", "level": "info", "script": "kg-bridge", "command": "pi-nudge-engine", "msg": "Nudge engine: check_all"}
+{"timestamp": "2026-02-10T15:12:06.014Z", "level": "INFO", "component": "test", "correlation_id": "2e3c1940", "event": "test_event", "message": "Test message", "data": {"key": "value"}}
+{"timestamp": "2026-02-10T15:13:15.282Z", "level": "INFO", "component": "proactive-intel", "correlation_id": "7fe97565", "event": "nudge_engine_started", "message": "Processing nudge engine command"}
+{"timestamp": "2026-02-10T15:13:15.283Z", "level": "INFO", "component": "proactive-intel", "correlation_id": "7fe97565", "event": "command_received", "message": "Processing command: check_all", "data": {"command": "check_all"}}
+{"timestamp": "2026-02-10T15:13:15.287Z", "level": "INFO", "component": "proactive-intel", "correlation_id": "7fe97565", "event": "check_followups_query", "message": "Querying stale contacts", "performance": {"duration_ms": 0.2, "start_time": "2026-02-10T15:13:15.287Z", "status": "success"}}
+{"timestamp": "2026-02-10T15:13:15.287Z", "level": "INFO", "component": "proactive-intel", "correlation_id": "7fe97565", "event": "followups_checked", "message": "Found 0 follow-up nudges", "data": {"count": 0, "threshold_days": 14}}
+{"timestamp": "2026-02-10T15:13:15.287Z", "level": "INFO", "component": "proactive-intel", "correlation_id": "7fe97565", "event": "check_travel_query", "message": "Querying upcoming events", "performance": {"duration_ms": 0.08, "start_time": "2026-02-10T15:13:15.287Z", "status": "success"}}
+{"timestamp": "2026-02-10T15:13:15.294Z", "level": "INFO", "component": "proactive-intel", "correlation_id": "7fe97565", "event": "travel_checked", "message": "Found 1 travel prep nudges", "data": {"count": 1, "max_days": 7}}
