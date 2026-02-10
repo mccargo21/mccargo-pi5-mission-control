@@ -42,7 +42,7 @@
       "id": "email_1770730608_2",
       "title": "📧 Review Emails for Tasks",
       "description": "Auto-extracted from Gmail search. Emails containing task keywords: task, to-do, due, deadline, meeting, appointment, reminder.\n\n**Emails found:**\n\n{\n  \"isError\": true,\n  \"error\": \"[\\n  \\\"insufficient tasks on account\\\"\\n]\",\n  \"feedbackUrl\": \"https://mcp.zapier.com/mcp/servers/f6cc52e2-019a-48b0-9478-de91a20ecaee/history/executions/3a4bd8bf-1020-47ce-9df7-5dac98d7e676\",\n  \"isPreview\": false\n}\n\n**Action required:** Review emails and create specific tasks.",
-      "status": "backlog",
+      "status": "in_progress",
       "project": "default",
       "tags": [
         "auto-extracted",
@@ -73,7 +73,8 @@
           "timestamp": "2026-02-10T08:36:48-05:00"
         }
       ],
-      "createdAt": "2026-02-10T08:36:48-05:00"
+      "createdAt": "2026-02-10T08:36:48-05:00",
+      "sortOrder": 1
     },
     {
       "id": "cal_1770730561_1",
@@ -294,8 +295,16 @@
       "createdAt": "2026-02-10T08:36:49-05:00"
     }
   ],
-  "lastUpdated": "2026-02-10T16:49:29.872Z",
+  "lastUpdated": "2026-02-10T16:49:31.670Z",
   "activities": [
+    {
+      "type": "moved",
+      "actor": "mccargo21",
+      "task": "📧 Review Emails for Tasks",
+      "from": "backlog",
+      "to": "in_progress",
+      "time": "just now"
+    },
     {
       "type": "moved",
       "actor": "mccargo21",
