@@ -1,6 +1,80 @@
 {
   "tasks": [
     {
+      "id": "cal_1770901216_1",
+      "title": "📅 Calendar Events Today",
+      "description": "Auto-extracted from Google Calendar for next 36 hours.\n\n**Events found:**\n\n{\n  \"isError\": true,\n  \"error\": \"[\\n  \\\"insufficient tasks on account\\\"\\n]\",\n  \"feedbackUrl\": \"https://mcp.zapier.com/mcp/servers/f6cc52e2-019a-48b0-9478-de91a20ecaee/history/executions/4e33194f-21db-46fc-ad04-099d1b37fcad\",\n  \"isPreview\": false\n}\n\n**Action required:** Review events and create specific tasks if needed.",
+      "status": "backlog",
+      "project": "default",
+      "tags": [
+        "auto-extracted",
+        "calendar"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_cal_1770901216_1_1",
+          "title": "Review calendar events",
+          "done": false
+        },
+        {
+          "id": "sub_cal_1770901216_1_2",
+          "title": "Prepare for meetings",
+          "done": false
+        },
+        {
+          "id": "sub_cal_1770901216_1_3",
+          "title": "Add follow-up tasks",
+          "done": false
+        }
+      ],
+      "priority": "medium",
+      "comments": [
+        {
+          "author": "Task Extractor",
+          "text": "Auto-generated from Google Calendar scan",
+          "timestamp": "2026-02-12T08:00:16-05:00"
+        }
+      ],
+      "createdAt": "2026-02-12T08:00:16-05:00"
+    },
+    {
+      "id": "email_1770901219_2",
+      "title": "📧 Review Emails for Tasks",
+      "description": "Auto-extracted from Gmail search. Emails containing task keywords: task, to-do, due, deadline, meeting, appointment, reminder.\n\n**Emails found:**\n\n{\n  \"isError\": true,\n  \"error\": \"[\\n  \\\"insufficient tasks on account\\\"\\n]\",\n  \"feedbackUrl\": \"https://mcp.zapier.com/mcp/servers/f6cc52e2-019a-48b0-9478-de91a20ecaee/history/executions/d64ae620-a257-40f9-970c-981434821e84\",\n  \"isPreview\": false\n}\n\n**Action required:** Review emails and create specific tasks.",
+      "status": "backlog",
+      "project": "default",
+      "tags": [
+        "auto-extracted",
+        "email"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_email_1770901219_2_1",
+          "title": "Review task emails",
+          "done": false
+        },
+        {
+          "id": "sub_email_1770901219_2_2",
+          "title": "Extract actionable items",
+          "done": false
+        },
+        {
+          "id": "sub_email_1770901219_2_3",
+          "title": "Create specific tasks",
+          "done": false
+        }
+      ],
+      "priority": "medium",
+      "comments": [
+        {
+          "author": "Task Extractor",
+          "text": "Auto-generated from Gmail scan",
+          "timestamp": "2026-02-12T08:00:19-05:00"
+        }
+      ],
+      "createdAt": "2026-02-12T08:00:19-05:00"
+    },
+    {
       "id": "cal_1770730604_1",
       "title": "📅 Calendar Events Today",
       "description": "Auto-extracted from Google Calendar for next 36 hours.\n\n**Events found:**\n\n{\n  \"isError\": true,\n  \"error\": \"[\\n  \\\"insufficient tasks on account\\\"\\n]\",\n  \"feedbackUrl\": \"https://mcp.zapier.com/mcp/servers/f6cc52e2-019a-48b0-9478-de91a20ecaee/history/executions/6e6dc2d3-26ed-46a6-9967-89fbf3139ad3\",\n  \"isPreview\": false\n}\n\n**Action required:** Review events and create specific tasks if needed.",
@@ -298,47 +372,5 @@
       "sortOrder": 0
     }
   ],
-  "lastUpdated": "2026-02-10T16:49:36.474Z",
-  "activities": [
-    {
-      "type": "moved",
-      "actor": "mccargo21",
-      "task": "📧 Review Emails for Tasks",
-      "from": "backlog",
-      "to": "in_progress",
-      "time": "just now"
-    },
-    {
-      "type": "moved",
-      "actor": "mccargo21",
-      "task": "Daily Context Briefing",
-      "from": "backlog",
-      "to": "in_progress",
-      "time": "just now"
-    },
-    {
-      "type": "moved",
-      "actor": "mccargo21",
-      "task": "📅 Calendar Events Today",
-      "from": "backlog",
-      "to": "in_progress",
-      "time": "just now"
-    },
-    {
-      "type": "moved",
-      "actor": "mccargo21",
-      "task": "📧 Review Emails for Tasks",
-      "from": "backlog",
-      "to": "in_progress",
-      "time": "just now"
-    },
-    {
-      "type": "moved",
-      "actor": "mccargo21",
-      "task": "📅 Calendar Events Today",
-      "from": "backlog",
-      "to": "in_progress",
-      "time": "just now"
-    }
-  ]
+  "lastUpdated": "2026-02-12T13:00:19Z"
 }
